@@ -75,10 +75,13 @@
 #### Perkembangan ini memperlihatkan bahwa masyarakat modern semakin bergantung dengan sains dan teknologi untuk memecahkan berbagai masalah kehidupan. Harari juga berpendapat bahwa di masa depan manusia mungkin akan mempercayai algoritma dan data daripada intuisi manusia sendiri. Ia menyebut fenomena ini sebagai *Dataisme*.
 
 #### 2.2 Akar Konflik dalam perspektif Historis
-#### - Perkembangan apa saja yang terjadi pada sains dan agama pada masa Yunani. 
+#### - Perkembangan apa saja yang terjadi pada sains dan agama pada masa Yunani include Eropa.
 #### Perkembangan ilmu pengetahuan di Yunani sangatlah melegenda, ada banyak ilmu lahir disini, yang menjelaskan perkembangan IPTEK pada zaman Yunani kuno sangat berkembang juga. Konsep Pythagoras dan kontribusi ilmiah dari Archimedes dari bidang fisika dan mekanika. Berikut ini adalah perkembangan iptek pada zaman Yunani kuno : 
 #### A. Filsafat Yunani kuno dan logika.
-####    Yunani kuno 
+#### Yunani kuno dikenal sebagai tempat lahirnya filsafat barat. Para filsuf Yunani tidak hanya merenungkan tentang kehidupan dan alam semesta, tetapi juga mengembangkan metode berpikir yang mnjadi dasar bagi ilmu pengetahuan. Filsafat Yunani kuno terbagi ke dalam beberapa periode, yaitu periode pra Socrates, periode Sokrates, dan periode Helenistik.
+#### 1. Periode pra Socrates.
+#### Filsuf pada periode ini lebih fokus pada memahami hakikat alam dan keberadaan dunia. Beberapa tokoh pentingnya adalah : 
+#### - Thales dari Miletus 
 #### - Perkembangan sains dan agama pada masa Romawi include Eropa dan negara lain.
 #### Perkembangan sains dan agama dalam sejarah peradaban manusia memiliki hubungan yang dinamis dan berbeda pada setiap periode. pada masa Yunani dan Romawi pemahaman tentang alam semesta pada awalnya dipengaruhi oleh mitologi dan kepercayaan terhadap dewa-dewa. Namun, sejak abada ke 6 SM, para filsuf yang menjelaskan fenomena alam secara rasional. Perubahan mitos menuju rasio ini menjadi dasr tumbuhnya pemikiran ilmiah dalam peradaban Barat. para filsuf Ynani berusaha memahami alam dengan pendekatan logis dan rasional sehingga mendorong perkembangan filsafat dan ilmu pengetahuan yang kemudian mempengaruhi peradaban Romawi dan Eropa selanjutnya. 
 #### Perkembangan berikutnya, ilmu pengetahuan mengalami kemajuan pesat dalam dunia Islam. Ini disebabkan oleh dorongan ajaran Islam yang menganjurkan umatnya untuk mencari ilmu dan meneliti alam semesta sebagai kebesaran Tuhan. Para ilmuwan Muslim tidak hanya menerima warisan ilmu pengetahuan dari Yunani dan Romawi, tetapi juga mengembangkan dalam berbagai bidang seperti matematika, kimia, astronomi dan kedokteran. Proses penerjemahan karya ilmiah Yunani ke dalam bahasa Arab yang dilakukan di pusat ilmu seperti Baghdad melalui lembaga Bayt al-Hikmah menjaddi salah satu faktor penting dalam perkembangan sains pada masa itu.
