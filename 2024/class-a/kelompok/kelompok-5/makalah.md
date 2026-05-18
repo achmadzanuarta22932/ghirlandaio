@@ -142,23 +142,81 @@ Untuk sistem UEFI, pasang partisi ke ```/mnt/boot```:
 ### 3. Konfigurasi sistem
 **3.1 Instalasi Sistem Dasar**
 
+Tidak ada konfiguransi yang diturunkan dari lingkungan produksi ke sistem yang diinstal. Salah satu yang wajib di instal adalah base, yang tidak menyertakan semua alat dari instalasi produksi, sehingga seringkali diperlukan menginstal lebih banyak paket.Sebagai contoh, instalasi dasar dengan kernel Linux yaitu:
+
+'''pacstrap -K /mnt base linux linux-firmware base'''
+
+pacstrap di gunakan untuk mencloning atau mengambil packages dari miror repo archlinux dan membuat instalasi sistem baru
+
+
 **3.2 Membuat Fstab**
 
+setelah pacstrap langkah selanjutnya yaitu membuat fstab, fstab yaitu menentukan partisi mana yang akan di mount terlebih dahulu setelah bootloader
+
+'''genfsatb -U /mnt >> /mnt/etc/fstab'''
 
 
 **3.3 Masuk ke Sistem Baru (Chroot)**
 
+setelah fstab langkah selanjutnya yaitu masuk ke sistem chroot, chroot digunakan untuk berinteraksi dengan lingkungan, alat, dan konfiguransi sistem baru untuk lanngkahnya seolah-olah kita masuk sistemnya dan ubah pengguna root ke sistem lain
+
+'''arch-chroot /mnt'''
+
+
 **3.4 Mengatur Timezone**
+
+untuk membuat penguna nyaman diperlukan waktu,untuk menampilkan untuk lokal yang benar atau mengalah dengan tutur kata tangerang dengan untuk ,enggsnt
+
+'''In -sf/usr/share,zoneinfo/Area/Location /etc/localtime'''
+
+contoh indonesia
+'''In -sf /usr/share/zoneinfo/Asia/Jakarta /etc/localtime
+
+Singkrokan jam perangkat keras
+'''hwlock --systhoc'''
+
 
 **3.5 Localization**
 
+selanjutnya ada localization digunakan untuk menggunakan format yang tepat sesuai wilayah dan bahasa
+
+generate locale:
+'''locale-gen'''
+
+Isi /etc/locale.conf:
+'''LANG= en_US.UTF-8'''
+
+
 **3.6 Hostname**
+
+hostname adalah nama komputer di jaringan
+
+Isi file: 
+'''/etc/hostname'''
+
+contoh:
+'''myarchpc'''
 
 **3.7 Generate Initramfs**
 
+membuat initrams baru tidak tidak diperlukan, karena mkinitcpio telah dijalankan saat instalasi paket kernel dengan packstrap.
+
+Membuat image boot awal linux:
+'''mkinitcpio -P'''
+
+
 **3.8 Password Root**
 
+langkah selanjutnya tetapkan kata sandi atau password yang aman untuk pengguna yang menggunakan root dan dapat melakukan tindakan administrasi.
+
+'''passwd'''
+
+
 **3.9 Install Bootloader**
+
+langkah selanjutnya yaitu pilih boot loader yang sesuai dengan skema partisi dan instal, boot loader adalah perangkat lunak yang dijalankan oleh firmware UEFI atau BIOS yang bertugas memuat kernel dan initframs sebelum memulai proses booting
+
+menggunakan GRUB sebagai bootloader dan mendownload efibootmgr untuk manage uefi
 
 ### 4. Reboot
 
