@@ -460,58 +460,92 @@ Pilih sesuai dengan platform laptop dan ketik untuk memulai pengunduhan.
 
 penjelasan neovim
 
+---
+
+Selanjutnya ketik:
 ```bash
 pacman -S neovim
 ```
-lalu ketik
-
+lalu:
 ```bash
  locale-gen
 ```
-Dan Lanjutkan
+Dan di lanjutkan dengan:
 ```bash
 nvim /etc/locale.conf
 ```
 
-Pencet i Untuk insert dan masukkan command ini
+---
 
+
+Pencet key I pada keyboard dan masukkan perintah ini:
 ```bash
 LANG=en_US.UTF-8
 ```
-Setelah sudah terisi pencet escape dan ketik :wq
+
+---
+
+
+Setelah sudah terisi, tekan key __escape__ pada keyboard dan ketik `:wq`
+
 
 # Hostname
 
+untuk membuat __Hostname__, ketik:
 ```bash
 nvim /etc/hostname
 ```
 
-Insert lagi dan masukkan nama hostname yang kalian inginkan, Contoh:
-"Luthfi"
+---
+
+
+Selanjutnya, Insert lagi dan masukkan nama hostname yang diinginkan. 
+
+Contoh: __"Luthfi"__
+- nvim /etc/Luthfi
+
 
 ### Penjelasan
-Hostname adalah nama komputer di jaringan.
+__Hostname__ adalah nama yang digunakan untuk mengidentifikasi perangkat di jaringan.
+
+
+---
+
 
 # Generate Initramfs
 
+Untuk menhasilkan __Initramfs__ (Initial RAM File System) ketik:
 ```bash
 mkinitcpio -P
 ```
 
 ### Penjelasan
-Membuat image boot awal Linux.
+Ini digunakan untuk membuat image boot awal Linux.
+
+
+---
+
 
 # Password Root
 
+Selanjutnya, ketik:
 ```bash
 passwd
 ```
 
 ### Penjelasan
-Mengatur password administrator/root.
+Perintah tersebut digunakan untuk mengatur __password__ administrator/root.
+
+
+---
+
 
 # Install Bootloader (GRUB)
 
+Langkah berikutnya adalah melakukan instalisasi `Bootloader` atau `GRUB`, GRUB (GRand Unified Bootloader) adalah sebuah boot loader. GRUB saat ini juga disebut sebagai `GRUB 2`. Sementara GRUB asli, atau dikenal dengan `GRUB Legacy`, yang sesuai dengan versi 0.9x. Modul dokumentasi ini membahas Bootloader GRUB menggunakan __GRUB 2__
+
+
+Ikuti langkah langkah ini untuk menginstall Bootloader (GRUB):
 ```bash
 pacman -S grub efibootmgr
 ```
@@ -523,6 +557,10 @@ grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB
 ```bash
 grub-mkconfig -o /boot/grub/grub.cfg
 ```
+
+
+---
+
 
 # Reboot
 
