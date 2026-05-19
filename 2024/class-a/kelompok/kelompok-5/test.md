@@ -19,6 +19,10 @@ di balena etcher masukan file ISO Arch linux, pilih flashdisk lalu tinggal tekan
 5. anda sudah masuk ke live environment
 
 ## konek internet
+jika menggunakan kabel lan tinggal colok
+
+
+jika menggunakan wifi:
 iwctl
 ```
 iwctl
@@ -56,7 +60,11 @@ Di live environment anda dapat melihat disk yang dibagi menjadi *block device* s
 fdisk -l
 ```
 cari disk mana yang mau dipartisi
+
+<img width="1920" height="1080" alt="Desain tanpa judul (2)" src="https://github.com/user-attachments/assets/f5f13826-fd86-4c1d-98d2-b6cf1a5f208e" />
+
 masuk ke disk yang mau dipartisi
+disini disk yang mau saya partisi adalah ```
 
 sesuaikan dengan layout ini
 <img width="937" height="271" alt="image" src="https://github.com/user-attachments/assets/0ae7bdc3-e491-449b-976c-05096373697e" />
