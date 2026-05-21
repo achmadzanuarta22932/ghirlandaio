@@ -43,7 +43,7 @@ Presentator mampu melakukan dan menjelaskan installasi desktop arch linux
 Untuk setiap anggota kelas, setiap sesi kelas selesai, anggota kelas bisa melakukan perubahan pada sistem komputer sesuai dengan perubahan yang di presentasikan oleh presentator
 
 ### pengumpulan
-- bukti screenshot di kumpulkan dalam repo penguasan masing masing paling telat 4X24jam setelah berakhirnya kelas  
+- bukti pengerjaan dikumpulkan dalam bentuk output file terminalizer dan di kumpulkan dalam repo penguasan masing masing paling telat 4X24jam setelah berakhirnya kelas  
 - keterlambatan pengumpulan tugas di berikan sanksi pemberian pinalti penilaian sebesar 100%.  
 
 ## must to do:
