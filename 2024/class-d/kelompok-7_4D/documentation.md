@@ -74,7 +74,7 @@ pvcreate /dev/[partisi root]
 vgcreate proc /dev/[partisi root]
 ```
 
-### logical volume
+### create logical volume
 ```
 lvcreate -L size (G | M) proc -n root
 ```
