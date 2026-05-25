@@ -1,9 +1,9 @@
-# Dokumentasi Instalasi Arch Linux Kelompok 7 Kelas 4-C
+# Dokumentasi Instalasi Arch Linux dengan Disk Layout CIS Kelompok 7 Kelas 4-C
 
 ---
 ## CONNECT WIFI
 Sambungkan koneksi wifi seperti langkah berikut.
-![alt text]()
+![alt text](https://raw.githubusercontent.com/Rafly-87/Studying/refs/heads/main/Gambar-gambar/WhatsApp%20Image%202026-05-23%20at%2000.35.03%20(2).jpeg)
 ```
 iwctl
 ```
@@ -30,7 +30,7 @@ ping 8.8.8.8
 ---
 ## CHECKING PARTISI
 Lakukan pengecekan dan pembagian partisi dengan langkah-langkah berikut.
-![alt text]()
+![alt text](https://raw.githubusercontent.com/Rafly-87/Studying/refs/heads/main/arch-xfce/WhatsApp%20Image%202026-05-25%20at%2008.38.32.jpeg)
 Cek partisi.
 ```
 lsblk
@@ -55,7 +55,7 @@ lsblk
 ---
 ## Partisi LUKS on LVM dengan Disk Layout CIS
 > Merupakan partisi yang di LUKS dan di dalamnya terdapat LVM.
-![alt text]()
+![alt text](https://raw.githubusercontent.com/Rafly-87/Studying/refs/heads/main/arch-xfce/WhatsApp%20Image%202026-05-25%20at%2008.38.32(2).jpeg)
 
 Melakukan setup LVM.
 ```
@@ -66,7 +66,6 @@ vgcreate (nama grup) /dev/(partisi root)
 ```
 
 **Membuat logical volume**
-![alt text]()
 ```
 lvcreate -L size (G | M) (nama grup) -n root
 ```
@@ -94,7 +93,7 @@ lvcreate -l50%FREE (nama grup) -n root (nama)
 > -l50%FREE adalah 50% dari sisa ruang yang akan digunakan.
 
 **Formatting**
-![alt text]()
+![alt text](https://raw.githubusercontent.com/Rafly-87/Studying/refs/heads/main/arch-xfce/WhatsApp%20Image%202026-05-25%20at%2008.38.31(1).jpeg)
 Format partisi BOOT.
 ```
 mkfs.vfat -F32 -n BOOT /dev/(partisi boot)
@@ -124,7 +123,7 @@ mkfs.ext4 /dev/(nama grup)/(nama)
 ```
 
 Melakukan setup LUKS
-![alt text]()
+![alt text](https://raw.githubusercontent.com/Rafly-87/Studying/refs/heads/main/arch-xfce/WhatsApp%20Image%202026-05-25%20at%2008.38.30.jpeg)
 ```
 cryptsetup luksFormat /dev/(nama grup)/(nama)
 ```
@@ -136,7 +135,7 @@ mkfs.ext4 /dev/mapper/(nama device)
 ```
 
 **Melakukan mounting**
-![alt text]()
+![alt text](https://raw.githubusercontent.com/Rafly-87/Studying/refs/heads/main/arch-xfce/WhatsApp%20Image%202026-05-25%20at%2008.38.29(1).jpeg)
 Mounting partisi grup root.
 ```
 mount /dev/(nama grup)/root /mnt
@@ -167,7 +166,7 @@ mount --mkdir -o rw,nodev,nosuid,noexec,relatime /dev/(nama grup)/home /mnt/home
 ---
 ## Instalasi Packages
 Melakukan instalasi package yang disesuaikan dengan prosesor laptop.
-![alt text]()
+![alt text](https://raw.githubusercontent.com/Rafly-87/Studying/refs/heads/main/arch-xfce/WhatsApp%20Image%202026-05-25%20at%2008.38.29(2).jpeg)
 **Intel**
 ```
 pacstrap /mnt intel-ucode linux-lts linux-lts-headers linux-firmware lvm2 base base-devel neovim openssh superfile podman podman-desktop iptables mpd mpc mpv keepassxc secrets booster networkmanager pam_mount
@@ -179,6 +178,7 @@ pacstrap /mnt amd-ucode linux-lts linux-lts-headers linux-firmware lvm2 base bas
 ```
 
 **fstab**
+![alt text](https://raw.githubusercontent.com/Rafly-87/Studying/refs/heads/main/arch-xfce/WhatsApp%20Image%202026-05-25%20at%2008.38.28.jpeg)
 ```
 genfstab -U /mnt > /mnt/etc/fstab
 ```
@@ -200,6 +200,7 @@ nvim /etc/hostname
 
 ---
 ## Set Localtime dan Locale
+![alt text](https://raw.githubusercontent.com/Rafly-87/Studying/refs/heads/main/arch-xfce/WhatsApp%20Image%202026-05-25%20at%2008.38.28(2).jpeg)
 Localtime
 ```
 ln -fs /usr/share/zoneinfo/Asia/Jakarta /etc/localtime
