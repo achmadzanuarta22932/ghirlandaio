@@ -44,7 +44,7 @@ cfdisk /dev/(partisi)
 Minimal partisi yang disesuaikan dengan peyimpanan yang ada.
 ```
 boot = 3G (EFI sistem)
-root = 30G (linux filesystem)
+root = 70G (linux filesystem)
 ```
 
 Cek kembali partisi yang telah dibuat.
@@ -249,9 +249,6 @@ passwd
 ```
 echo '(nama user) ALL=(ALL:ALL) ALL' >> /etc/sudoers.d/none
 ```
-```
-sudo mount -o rw,nodev,nosuid,relatime /dev/mapper/(nama device) /home/(nama)
-```
 
 **Config volume**
 ![alt text](https://raw.githubusercontent.com/Rafly-87/Studying/refs/heads/main/arch-xfce/WhatsApp%20Image%202026-05-25%20at%2008.38.24(1).jpeg)
@@ -419,6 +416,9 @@ default  booster.conf
 ```
 ```
 bootctl --graceful update
+```
+```
+pacman -S xfce4 sddm pipewire pipewire-pulse pipewire-jack pipewire-alsa
 ```
 
 ## Booting
