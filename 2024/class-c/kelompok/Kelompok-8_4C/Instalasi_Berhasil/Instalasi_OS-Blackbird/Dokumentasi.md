@@ -217,7 +217,7 @@ locale > /etc/locale.conf
 ```
 nvim /etc/locale.conf
 ```
-> Ubah LANG=C menjadi LANG=en-US dan LC_ALL= menjadi LC_ALL=en-US.UTF-8
+> Ubah LANG=C menjadi LANG=en_US dan LC_ALL= menjadi LC_ALL=en_US.UTF-8
 
 ---
 ## Home User Directory
