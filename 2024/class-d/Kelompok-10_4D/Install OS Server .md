@@ -1,8 +1,9 @@
 # Menginstall OS
 
 ## Menghubungkan ke jaringan wifi
-lsblks
-iwctl
+```
+iwctl 
+```
 
 station wlan0 get-networks
 
