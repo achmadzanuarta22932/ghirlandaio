@@ -7,7 +7,7 @@ iwctl
 ```
 device list
 ```
-**Cek driver wifi setiap laptop
+**cek driver wifi setiap laptop
 ```
 station wlan0 get-network
 ```
