@@ -250,7 +250,7 @@ nvim /etc/mkinitcpio.d/linux-lts.preset
 ## Install bootctl
 
 ```
-bootctl --path=/boot install 
+bootctl --path=/mnt/boot install 
 ```
 
 ***(ini kalo bukan laptop Lenovo, Lenovo bootctl nya harus di luar dari arch-chroot)***
