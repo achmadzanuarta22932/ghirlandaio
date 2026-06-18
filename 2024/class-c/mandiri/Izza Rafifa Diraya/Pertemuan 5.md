@@ -22,7 +22,7 @@ Dengan menerepakan cara-cara tersebut, pengungkapkan data yang tidak diinginkan 
 
 Komponen kedua ada *integrity* atau integritas. Integritas disini adalah data dan informasi harus tetap utuh dari keasliannya, tidak mengalami manipulasi secara tidak sah. Prinsip ini memastikan bahwa data tidak dipengaruhi oleh perubahan yang tidak sah sehingga data mengalami kehilangan integritasnya.
 
-Informasi haruslah berintegritas tinggi agar informasi tersebut bernilai tinggi dan dapat dipercaya. Agar integritas data bisa dijaga, perlu dilakukan beberapa hal berikut seperti melakukan audit data, mengontrol sistem akses masuk ke sebuah data, dan mempunyai teknologi yang mampu mendeteksi perubahan asing di sistem. Dengan kita sudah berupaya melakukan hal tersebut, data akan lebih aman dan integritasnya lebih terjaga.
+Informasi haruslah berintegritas tinggi agar informasi tersebut bernilai tinggi dan dapat dipercaya. Agar integritas data bisa terjaga, perlu dilakukan beberapa hal berikut seperti melakukan audit data, mengontrol sistem akses masuk ke sebuah data, dan mempunyai teknologi yang mampu mendeteksi perubahan asing di sistem. Dengan kita sudah berupaya melakukan hal tersebut, data akan lebih aman dan integritasnya lebih terjaga.
 
 Komponen terakhir atau ketiga adalah *availability* atau ketersediaan. Komponen ini memastikan bahwa data dan sumber daya terkait tersedia jika dibutuhkan. Dengan prinsip ini, pengguna dapat mengakses data dengan seminimal mungkin gangguan yang menghalanginya.
 
@@ -31,9 +31,9 @@ Ketersediaan data kapan saja sangat penting untuk pemeliharaan sistem, *backup d
 ## KESIMPULAN
 Semakin berkembangnya teknologi, semakin banyak pula ancaman digital yang ada. Para pengguna harus membekali diri dengan prinsip-prinsip keamanan digital. Prinsip keamaan digital ada tertuang di CIA Triad.
 
-CIA Triad memiliki tiga komponen, yaitu *confidentiality*, *integrity*, dan *availability*. Tiga komponen ini harus dipahami agar keamanan berdunia digital semakin aman dan kita sebagai pengguna tidak mengalami kerugian apapun.
+CIA Triad memiliki tiga komponen, yaitu *confidentiality*, *integrity*, dan *availability*. Tiga komponen ini harus dipelajari, dipahami, dan diterapkan agar keamanan berdunia digital semakin aman dan kita sebagai pengguna tidak mengalami kerugian apapun.
 
-Komponen pertama membahas tentang perlindungan informasi, komponen kedua membahas tentang informasi tidak boleh kehilangan integritas atau keasliannya, dan komponen terakhir membahas informasi harus tersedi kapan saja. Dengan menerapkan prinsip-prinsip tersebut, ancaman keamanan digital akan menurun.
+Komponen pertama membahas tentang perlindungan informasi, komponen kedua membahas tentang informasi tidak boleh kehilangan integritas atau keasliannya, dan komponen terakhir membahas informasi harus tersedia kapan saja. Dengan menerapkan prinsip-prinsip tersebut, ancaman keamanan digital akan menurun.
 
 ## DAFTAR PUSTAKA
 Teteki, A., Muryanto, B., dan Adikara, G. (2023). *Handbook Digital Safety*. Yayasan LKiS.
