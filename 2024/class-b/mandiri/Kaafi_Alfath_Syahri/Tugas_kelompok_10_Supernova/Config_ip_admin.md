@@ -29,7 +29,7 @@ nmcli connection add type ethernet ifname enp2s0 con-name "admin-connection" ipv
 Tambahkan perintah berikut ke file `.bash_profile` agar koneksi aktif secara otomatis saat pengguna masuk ke sistem:
 
 ```bash
-echo "nmcli connection up admin-connection" >> /home/fazil/.bash_profile
+echo "nmcli connection up admin-connection" >> /home/nama_user/.bash_profile
 ```
 
 ## Membuat User Baru
