@@ -157,3 +157,6 @@ podman ps -a
 
 ## Selesai dan Buka Browser
 http://(ip server):80
+
+## Tampilan slims
+<img width="1599" height="1200" alt="slimssss" src="https://github.com/user-attachments/assets/249b3654-5ef5-4216-9656-140cbfdd453d" />
