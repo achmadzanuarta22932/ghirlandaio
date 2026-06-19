@@ -30,3 +30,23 @@ lvcreate -l100%FREE saw -n podman
 4. Format
 ```
 
+mkfs.ext4 /dev/saw/root
+
+mkfs.vfat -F32 /dev/nvme0n1p5
+
+mkfs.ext4 /dev/saw/vars
+
+mkfs.ext4 /dev/saw/vlog
+
+mkfs.ext4 /dev/saw/vaud
+
+mkfs.ext4 /dev/saw/vtmp
+
+mkfs.ext4 /dev/saw/home
+
+mkfs.ext4 /dev/saw/podman
+```
+
+5. Mounting Semua Partisi
+```
+
