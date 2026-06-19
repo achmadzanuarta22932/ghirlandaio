@@ -270,7 +270,7 @@ umount -R /mnt
 
 **CTRL+D**
 
-**asciineme upload kel10.cast**
+**asciineme upload nebula7.cast**
 
 **setelah melakukan upload rekaman asciinema, lalu foto link yang ditampilkan**
 
