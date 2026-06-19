@@ -21,7 +21,7 @@ sudo firewall-cmd --permanent --zone=admin --add-source=15.15.5.2
 sudo firewall-cmd --permanent --zone=admin --add-service=ssh
 ```
 
-## Membuka hak akses zone Port 
+## Membuka akses zone Port 
 
 ```
 sudo firewall-cmd --permanent --zone=admin --add-port=3306/tcp
