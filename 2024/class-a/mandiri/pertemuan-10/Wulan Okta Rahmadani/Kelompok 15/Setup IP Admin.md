@@ -1,28 +1,28 @@
-## 1. Memeriksa Status Jaringan
+## Memeriksa Status Jaringan
 ```
 nmcli device status
 ```
-## 2. Menampilkan Informasi IP
+## Menampilkan Informasi IP
 ```
 ip
 ```
-## 3. Membuat Koneksi Jaringan Baru
+## Membuat Koneksi Jaringan Baru
 ```
-Connection 'admin-connection' successfully added.
+ nmcli connection add type ethernet ifname enp2s0 con-name "admin-connection" ipv4.method manual ipv4.addresses 15.15.5.2/24 ipv4.gateway 15.15.5.1 ipv4.dns 8.8.8.8
 ```
-## 4. Membuat User Baru
+## Membuat User Baru
 ```
 echo "nmcli connection up admin-connection" >> ~/.bash_profile
 ```
-## 5. Membuat Pengguna Baru
+## Membuat Pengguna Baru
 ```
 sudo useradd -m operator
 ```
-## 6. Mengatur Password Pengguna
+## Mengatur Password Pengguna
 ```
 sudo passwd operator
 ```
-## 7. Keluar dari Terminal
+## Keluar dari Terminal
 ```
 exit
 ```
