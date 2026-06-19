@@ -1,6 +1,6 @@
 # Instal OS admin
 
-## Kelompok 10
+## Kelompok 19
 1. Naila Ahnafani
 2. Nur Ahdiayani
 3. Muhammad Iqbal Tamam
