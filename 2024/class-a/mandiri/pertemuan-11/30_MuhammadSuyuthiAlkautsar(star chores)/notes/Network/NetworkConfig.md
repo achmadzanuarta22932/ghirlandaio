@@ -7,3 +7,4 @@ systemd-network config
 https://youtu.be/OIGqeN3Y1rA?si=epR1Ec38CbFW1Cmd
 
 
+https://youtu.be/xj_GjnD4uyI?si=mgpqPnsnyRomP5KC
