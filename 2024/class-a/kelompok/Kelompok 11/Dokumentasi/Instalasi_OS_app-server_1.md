@@ -1,6 +1,7 @@
-# Install OS App Server
+# Install OS APP
 
-## 1. Rekam Instalasi (Opsional)
+
+## 1. Rekam Inst
 
 ```bash
 asciinema rec nama.cast
@@ -19,7 +20,7 @@ station wlan0 get-networks
 ```
 
 ```bash
-station wlan0 connect nama_wifi
+station wlan0 connect (nama wifi)
 ```
 
 Masukkan password Wi-Fi lalu:
@@ -31,7 +32,7 @@ exit
 Cek koneksi:
 
 ```bash
-ping 1.1.1.1
+ping 8.8.8.8
 ```
 
 ---
@@ -39,9 +40,15 @@ ping 1.1.1.1
 ## 3. Partisi Disk
 
 ```bash
-cfdisk /dev/sda
+cfdisk /dev/nvme0n1
 ```
-buat partisi
+
+buat partisi boot dan root linux filesystem, contoh
+
+```
+3G EFI System
+27G Linux filsystem
+```
 
 Cek:
 
@@ -54,14 +61,17 @@ lsblk
 ## 4. Enkripsi LUKS
 
 ```bash
-cryptsetup luksFormat /dev/p.root
+cryptsetup luksFormat –sector-size=4096 /dev/p.root
 ```
+
+(contoh p.root nya = nvme0n1p6 atau sda4, tergantung laptop masing”)
 
 Ketik:
 
 ```text
 YES
 ```
+
 
 Buka LUKS:
 
@@ -216,7 +226,7 @@ lsblk
 ## 8. Install Base System
 
 ```bash
-pacstrap /mnt base intel-ucode linux-lts linux-lts-headers linux-firmware mkinitcpio lvm2 neovim sudo curl iwd firewalld pacman which grep docker
+pacstrap /mnt intel-ucode linux-hardened linux-hardened-headers linux-firmware mkinitcpio lvm2 base sudo curl neovim iwd firewalld pacman which grep podman
 ```
 
 Generate fstab:
@@ -225,16 +235,12 @@ Generate fstab:
 genfstab -U /mnt > /mnt/etc/fstab
 ```
 
-Salin konfigurasi network:
+```bash
+echo "tmpfs /tmp tmpfs defaults,rw,nosuid,nodev,noexec,relatime,size=1G 0 0" >> /mnt/etc/fstab
+```
 
 ```bash
 cp /etc/systemd/network/* /mnt/etc/systemd/network
-```
-
-Tambahkan tmpfs:
-
-```bash
-echo "tmpfs /tmp tmpfs defaults,nodev,nosuid,noexec,size=1G 0 0" >> /mnt/etc/fstab
 ```
 
 Masuk chroot:
@@ -248,7 +254,17 @@ arch-chroot /mnt
 ## 9. Hostname dan Timezone
 
 ```bash
-echo nama > /etc/hostname
+nvim /etc/hostname
+```
+
+di pengeditan nvim pencet i untuk insert, kemudian masukkan hostname dan esc
+```
+:wq
+```
+
+Setelah itu dia akan balik ke root, untuk mengecek hostname ketik:
+```bash
+cat /etc/hostname
 ```
 
 ```bash
@@ -273,6 +289,7 @@ Hilangkan `#` pada:
 
 ```text
 en_US.UTF-8 UTF-8
+en_US ISO-8859-1
 ```
 
 Generate:
@@ -315,7 +332,7 @@ passwd user
 Tambahkan sudo:
 
 ```bash
-echo "User ALL=(ALL:ALL) ALL" > /etc/sudoers.d/none
+echo "user ALL=(ALL:ALL) ALL" > /etc/sudoers.d/user
 ```
 
 ---
@@ -350,22 +367,46 @@ echo "rd.luks.name=$(blkid -s UUID -o value /dev/sda luks)=nama device luks root
 echo "rw" > /etc/cmdline.d/02-misc.conf
 ```
 
+```bash
+rm -fr /boot/initramfs-linux-*
+```
+
+untuk mengecek buka dengan 
+
+```bash
+ls /boot/
+```
+
+```bash
+mkdir -p /boot/efi /boot/efi/linux /boot/efi/systemd /boot/efi/boot /boot/kernel 
+```
+
+untuk mengecek lagi buka dengan 
+
+
+```bash
+ls /boot/
+```
+
+
+```bash
+mv /boot/intel-ucode.img /boot/vmlinuz-linux-* /boot/kernel/
+```
+
 ---
 
 ## 13. MKINITCPIO
 
-Hapus initramfs lama:
 
 ```bash
-rm -fr /boot/initramfs-linux-lts.img
+mv /etc/mkinitcpio.conf /etc/mkinitcpio.d/default.conf
 ```
 
 Edit:
 
 ```bash
-nvim /etc/mkinitcpi.conf
+nvim /etc/mkinitcpio.d/default.conf
 ```
-
 
 
 Ubah HOOKS menjadi:
@@ -376,29 +417,29 @@ HOOKS=(base systemd autodetect microcode modconf kms keyboard sd-vconsole block 
 
 ---
 
-## 14. Preset Linux LTS
+## 14. Preset Linux Hardened
 
 Edit:
 
 ```bash
-nvim /etc/mkinitcpio.d/linux-lts.preset
+nvim /etc/mkinitcpio.d/linux-hardened.preset
 ```
 
 Ubah menjadi:
 
 ```text
-# mkinitcpio preset file for the 'linux-lts' package
+# mkinitcpio preset file for the 'linux-hardened’ package
 
-ALL_config="/etc/mkinitcpio.conf"
-ALL_kver="/boot/vmlinuz-linux-lts"
-ALL_kerneldest="/boot/vmlinuz-linux-lts"
+ALL_config="/etc/mkinitcpio.d/default.conf"
+ALL_kver="/boot/kernel/vmlinuz-linux-hardened"
+ALL_kerneldest="/boot/kernel/vmlinuz-linux-hardened"
 
 PRESETS=('default')
 #PRESETS=('default' 'fallback')
 
 #default_config="/etc/mkinitcpio.conf"
-#default_image="/boot/initramfs-linux-lts.img"
-default_uki="/EFI/Linux/arch-linux-lts.efi"
+#default_image="/boot/initramfs-linux-hardened.img"
+default_uki="/boot/efi/linux/arch-linux-hardened.efi"
 #default_options="--splash /usr/share/systemd/bootctl/splash-arch.bmp"
 
 #fallback_config="/etc/mkinitcpio.conf"
@@ -425,20 +466,9 @@ Generate initramfs:
 mkinitcpio -P
 ```
 
-Cek isi boot:
-
-```bash
-cd /boot
-ls
-```
-
 ---
 
 ## 16. Enable Services
-
-```bash
-systemctl enable iwd
-```
 
 ```bash
 systemctl enable systemd-networkd
@@ -446,6 +476,10 @@ systemctl enable systemd-networkd
 
 ```bash
 systemctl enable systemd-resolved
+```
+
+```bash
+systemctl enable iwd
 ```
 
 ```bash
@@ -492,4 +526,3 @@ Reboot:
 reboot
 ```
 
-## 18. 
