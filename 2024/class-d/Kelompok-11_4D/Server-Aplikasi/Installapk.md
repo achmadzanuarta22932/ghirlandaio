@@ -1,6 +1,6 @@
 ## Percobaan Install #Pertama
 
-## 1. Deploy omeka pada podman
+## 1. omeka podman
 ```
 sudo pacman -S  podman-compose
 ```
@@ -46,7 +46,7 @@ volumes:
   db_data:
   files_data:
 ```
-# Aktifkan container 
+# Container 
 ```
 podman-compose up -d
 ```
@@ -55,6 +55,7 @@ Sampai step ini sudah eror
 podman ps -a
 ```
 GAGAL TOTAL :((
+
  ## Percobaan Install #Kedua
  ```
 spacman -S apache mariadb php-fpm unzip php-apache php-intl imagemagick
@@ -128,16 +129,27 @@ klik esc :wq
 ```
 ```
 nvim /etc/httpd/conf/httpd.conf
-add tagar sama delete tagar, jadi -> #LoadModule mpm_event_module modules/mod_mpm_event.so                                                                                                                                                                                           LoadModule mpm_prefork_module modules/mod_mpm_prefork.so 
-tambahin LoadModule php_module modules/libphp.so                                                                                                                                              AddHandler php-script .php 
+add tagar sama delete tagar, jadi
+#LoadModule mpm_event_module modules/mod_mpm_event.so
+LoadModule mpm_prefork_module modules/mod_mpm_prefork.so 
+tambahin LoadModule php_module modules/libphp.so
+AddHandler php-script .php                                            
 posisinya setelah
 #LoadModule asis_module modules/mod_asis.so
-#LoadModule info_module modules/mod_info.so                                                    #LoadModule suexec_module modules/mod_suexec.so  
+#LoadModule info_module modules/mod_info.so
+#LoadModule suexec_module modules/mod_suexec.so   
 ganti AllowOverride none jadi AllowOverride ALL
 setelah
-Options Indexes FollowSymLinks                                                                 # AllowOverride controls what directives may be placed in .htaccess files.                      # It can be "All", "None", or any combination of the keywords:                                #   AllowOverride FileInfo AuthConfig Limit     
-tambahin Include conf/extra/php_module.conf 
-posisinya abis ini                                                                              <IfModule ssl_module>                                                                         SSLRandomSeed startup builtin                                                                  SSLRandomSeed connect builtin                                                                  </IfModule>    
+Options Indexes FollowSymLinks
+# AllowOverride controls what directives may be placed in .htaccess files.                     
+tambahin Include conf/extra/php_module.conf
+#It can be "All", "None", or any combination of the keywords:
+#AllowOverride FileInfo AuthConfig Limit                              
+posisinya abis ini
+<IfModule ssl_module>
+SSLRandomSeed startup builtin
+SSLRandomSeed connect builtin
+</IfModule>
 klik esc :wq
 ```
 ```
@@ -156,5 +168,6 @@ exit
 ```
 reboot
 ```
-                                                                                                                                                                                   
+Laptop mati karena baterai habis tidak di charger pas dicoba degan input ip a dab :80 
+GAGAL LAGI
 
