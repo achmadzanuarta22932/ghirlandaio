@@ -31,3 +31,18 @@ Berikut adalah ringkasan data skripsi mengenai penerapan sistem otomasi, digital
 
 3. **Kesenjangan Adopsi & Kompleksitas Fitur**
    Fitur sistem yang semakin canggih (seperti RFID atau *advanced search*) sering kali terlalu kompleks bagi sebagian pemustaka awam serta membutuhkan biaya modal awal komponen yang tinggi.
+
+## Sumber
+https://repository.uinjkt.ac.id/dspace/handle/123456789/71674
+https://repository.uinjkt.ac.id/dspace/handle/123456789/29861
+https://repository.uinjkt.ac.id/dspace/handle/123456789/32245
+https://repository.uinjkt.ac.id/dspace/handle/123456789/50295
+https://repository.uinjkt.ac.id/dspace/handle/123456789/86178
+https://repository.uinjkt.ac.id/dspace/handle/123456789/40919
+https://repository.uinjkt.ac.id/dspace/handle/123456789/51233
+https://share.google/rN7uGGfcvRjRrHktQ
+https://share.google/JCH8aQUtEjlVKHI7R
+https://share.google/tRSLxTv3Kbb1ny9ZN
+https://share.google/KKAra8sdt2NQB2t7T
+https://repository.uinjkt.ac.id/dspace/bitstream/123456789/77461/1/Tian%20Noor-9252022031001.pdf
+https://repository.uinjkt.ac.id/dspace/bitstream/123456789/43257/1/Fulltext.pdf
