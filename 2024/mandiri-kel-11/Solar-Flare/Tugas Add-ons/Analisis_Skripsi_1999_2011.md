@@ -21,3 +21,8 @@ Berikut adalah ringkasan data skripsi mengenai penerapan sistem otomasi di perpu
 
 3. **Resistensi Perubahan Kultur Kerja**
    Adanya hambatan psikologis dalam beradaptasi dari pola kerja konvensional/manual ke ekosistem perpustakaan berbasis teknologi.
+
+## Sumber
+https://repository.uinjkt.ac.id/dspace/handle/123456789/33076
+https://repository.uinjkt.ac.id/dspace/bitstream/123456789/32808/1/Kemampuan%20Teknologi%20Informasi%20SDM%20Perpustakaan.pdf
+https://repository.uinjkt.ac.id/dspace/bitstream/123456789/33080/1/HANI%20QONITA
