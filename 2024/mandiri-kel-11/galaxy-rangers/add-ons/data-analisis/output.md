@@ -8,21 +8,24 @@
 | **4** | Pengembangan aplikasi sistem informasi nilai dan kelulusan siswa berbasis WAP | Aniek Nian Wigayanti | 2008 | Sistem berbasis WAP berhasil mudahkan akses nilai secara mobile, namun perlu dikembangkan ke versi berbasis web dengan fitur lebih lengkap agar cakupan akses lebih luas. |
 | **5** | Membangun sistem informasi spasial berbasis web pada sarana publik: studi kasus Kotamadya Cirebon | Syarifah Mawardi | 2008 | Pembangunan SIG memerlukan data spasial dan citra peta terbaru yang telah terkoreksi agar akurat. Perlu penyesuaian konfigurasi software jika terjadi konflik instalasi. |
 | **6** | Identifikasi kerusakan handphone generasi ke-3 menggunakan sistem pakar berbasis web | Nurhayatul Arifin | 2008 | Sistem pakar berhasil melakukan diagnosis awal kerusakan. Perlu pengembangan lanjut berupa penambahan basis aturan (rules) serta jenis HP mengikuti tren teknologi terbaru. |
-| **7** | Kejadian Anemia pada Remaja Putri di SMAN 1 Lubuk Sikaping | Era Oktalina | 2011 | Angka anemia tinggi (63%). Solusi intervensi memerlukan edukasi gizi melalui media interaktif yang menarik serta pemanfaatan suplemen tablet tambah darah secara rutin. |
-| **8** | Layanan Referensi Perpustakaan Perguruan Tinggi: Studi Kasus di IPB | Rifni Raihana | 2017 | Layanan digital berjalan baik, namun terkendala internet lambat dan akses artikel berbayar. Disarankan penguatan jaringan, promosi layanan, dan kerja sama antarperpustakaan. |
-| **9** | Pengaruh Gaya Hidup Terhadap Repurchase Intention di 7 Eleven Tebet | Della Aresa | 2012 | Minat beli ulang kuat dipengaruhi tren gaya hidup, kualitas produk, dan kenyamanan. Perusahaan perlu memanfaatkan penyesuaian layanan digital yang adaptif terhadap tren anak muda. |
+| **7** | Penerapan Otomasi Perpustakaan Berbasis Teknologi Senayan Library Information Management System (SLiMS) di UPT Perpustakaan Universitas Pembangunan Nasional Veteran Jakarta | Khoerul Umam | 2014 | Penerapan SLiMS berhasil meningkatkan layanan perpustakaan. Namun, masih diperlukan pengembangan sistem, penambahan SDM TI, serta sosialisasi dan pelatihan bagi pengguna. |
+| **8** | Strategi fundraising Panti Asuhan Raudhatul Hikmah Kota Tangerang Selatan| Syahronal	 | 2013 | Strategi fundraising belum optimal dalam memenuhi kebutuhan dana operasional. Diperlukan peningkatan penggalangan dana, promosi, kinerja SDM, dan transparansi pengelolaan dana. |
+| **9** | Meningkatkan kepuasan pengguna aplikasi gramedia dengan eucs, system speed dan flexibility | Sinta Nada Ramadhani | 2024 | Aplikasi Gramedia telah memberikan kepuasan kepada pengguna, namun beberapa fitur dan layanan belum optimal. Diperlukan evaluasi dan pengembangan aplikasi untuk meningkatkan kualitas layanan. |
 | **10** | Pelestarian Koleksi Digital di Perpustakaan Universitas Terbuka | Muhammad Syafiq K. P. | 2013 | Preservasi digital terkendala file corrupt/missing, kurangnya keahlian staf, dan risiko peretasan web. Disarankan penyusunan SOP pelestarian digital dan penguatan keamanan web. |
-| **11** | Pengembangan Aplikasi Sistem Pengambilan Keputusan Pemetaan Pelatihan TI untuk Disabilitas (Metode AHP) | Ahmad Arya Sawraja | 2018 | Metode AHP sukses memetakan rekomendasi pelatihan TI berbasis disabilitas. Sistem masih terbatas, disarankan menambah kriteria seleksi dan memperluas cakupan jenis disabilitas. |
+| **11** | Analisis Techonology Acceptance Model Terhadap Penerimaan Website Bibliografi Nasional Indonesia di Perpustakaan Nasional Republik Indonesia | Dany Rasyid Rabbani | 2022 |Website BNI telah diterima dengan baik oleh pengguna, namun fungsi dan kegunaannya belum optimal. Disarankan pengembangan fitur website dan pelatihan penggunaan sistem. |
 | **12** | Pengaruh Task Technology Fit Terhadap Pemanfaatan E-Book Mahasiswa UIN Jakarta | Dandy Julian | 2022 | Pemanfaatan e-book dipengaruhi secara positif oleh kesesuaian antara karakteristik teknologi dengan kebutuhan akademik mahasiswa (Task-Technology Fit). |
 
 ## berikut analisis 3 permasalahan utama perpustakaan dan arsip dengan kaitannya terhadap implementasi teknologi informasi. 
 
-# Keterbatasan Infrastruktur fisik da nekosistem legacy
+# Keterbatasan Infrastruktur fisik dan nekosistem legacy
 
-banyak perpustakan yang terjebak pada sistem usang (legacy systems) dan infrastrukur fisik yang rentan, sehingga menghambat sklabilitas layanan.
+Banyak perpustakaan masih menghadapi keterbatasan infrastruktur teknologi dan sistem informasi sehingga layanan digital belum berjalan secara optimal.
 
 ## obsolesensi platform: 
-data menunjukan (no. 1) bahwa ketergantungan pada lingkungan sistem operasi lama (seperti DOS) membatasi penambahan fitur dan menyebabkan kendala memori. Ini adalah masalah mendasar dalam arsitektur pernagkat lunak; ketika fondasi usang, sistem tidak bisa merespon kebutuhan modern.
+Beberapa penelitian menunjukkan adanya keterbatasan platform, fitur sistem, serta perlunya pembaruan perangkat lunak (No. 1, No. 2, No. 3, dan No. 7). Pengembangan sistem, penggunaan versi terbaru, serta pemeliharaan teknologi menjadi kebutuhan agar layanan perpustakaan dapat mengikuti perkembangan teknologi informasi.
+
+## infrastruktur pendukung
+Keandalan layanan perpustakaan berbasis teknologi juga dipengaruhi oleh kesiapan infrastruktur seperti jaringan internet, media penyimpanan, UPS, dan mekanisme backup data (No. 2, No. 8, dan No. 10). Infrastruktur yang kurang memadai dapat menghambat akses informasi dan operasional layanan digital.
 
 ## Kerentanan Perangkat Keras dan Jaringan:
 Operasional otomasi sangat bergantung pada stabilitas hardware dan konektivitas (No. 2 dan No. 8). Hal-hal teknis yang sering dianggap sepele, seperti ketiadaan UPS, manajemen backup data yang buruk, hingga latensi internet yang tinggi, menjadi bottleneck (leher botol) yang melumpuhkan layanan sirkulasi dan akses referensi digital harian.
