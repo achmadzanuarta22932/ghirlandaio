@@ -200,7 +200,7 @@ echo “tmpfs /tmp tmpfs defaults,rw,nodev,nosuid,noexec,relatime,size=1G 0 0”
 cat /mnt/etc/fstab
 ```
 
-# Konfigurasi network
+# Mengkonfigurasi network
 
 ```
 cp /etc/systemd/network/*  /mnt/etc/systemd/network
@@ -246,27 +246,34 @@ agar jadi:
 	en_US ISO-8859-1
 ```
 
-
+```
 locale-gen
 ```
+
 ```
 locale > /etc/locale.conf
 ```
+
 ```
 nvim /etc/locale.conf
 ```
+Edit pada bagian:
 
+```
 LANG=C.UTF-8 (LANG=en_US.UTF-8)
 LC_ALL= (ditambahin en_US.UTF-8)
+```
 
 ## Membuat useradd
 
 ```
 useradd -m server
 ```
+
 ```
 passwd server
 ```
+
 ```
 echo “server ALL=(ALL:ALL) ALL” > /etc/sudoers.d/server
 ```
@@ -279,7 +286,7 @@ su server
 sudo su
 ```
 
-enter password
+Kemudian masukkan password
 
 ## Konfigurasi cmdline
 
@@ -291,6 +298,8 @@ mkdir /etc/cmdline.d
 touch /etc/cmdline.d/{01-boot.conf,02-misc.conf}
 ```
 
+Cek kembali:
+
 ```
 lsblk
 ```
@@ -298,21 +307,26 @@ lsblk
 ```
 cat /etc/cmdline.d/01-boot.conf
 ```
+
 ```
 echo “rd.luks.name=$(blkid -s UUID -o value /dev/partisi boot)=proc root=/dev/server/root” > /etc/cmdline.d/01-boot.conf
 ```
+
 ```
 echo rw > /etc/cmdline.d/02-misc.conf
 ```
+
 ```
 nvim /etc/mkinitcpio.conf
 ```
 
-## bagian HOOKS akhir tambahin (sd-encrypt lvm2)
+## Edit bagian HOOKS terakhir (yang tidak ada # di depannya), tambahin (sd-encrypt lvm2)
 
 ```
 nvim /etc/mkinitcpio.d/linux-lts.conf.preset
 ```
+
+
 = mkinitcpio preset file for the 'linux-hardened' package
 ALL_config="/etc/mkinitepio.conf"
 ALL_kver="/boot/vmlinuz-linux-hardened"
@@ -330,7 +344,7 @@ PRESETS=( 'default')
 #fallback_image="/boot/initramfs-linux-lts-fallback.img “
 #fallback_uki=”/efi/EFI/Linux/arch-linux-lts-fallback.efi"
 #fallback_options="-S autodetect”
-```
+
 
 ## Menginstall bootctl
 
@@ -341,27 +355,37 @@ bootctl –path=/boot install
 ```
 mkinitcpio -P 
 ```
+
+## Mengaktifkan service 
+
 ```
 systemctl enable systemd-networkd
 ```
+
 ```
 systemctl enable systemd-resolved
 ```
+
 ```
 systemctl enable iwd 
 ```
+
 ```
 systemctl enable firewalld
 ```
+
 ```
 systemctl enable sshd
 ```
+
 ```
 exit
 ```
+
 ```
 umount -R /mnt
 ```
+
 ```
 reboot
 ```
