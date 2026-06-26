@@ -62,7 +62,7 @@ masukkan kata sandi
 cryptsetup luksOpen /dev/nvme0n1p8 andromeda
 ```
 
-3# Setup lvm
+# Setup lvm
 ```
 pvcreate /dev/mapper/andromeda
 ```
