@@ -31,6 +31,8 @@ RouteMetric=100
 RouteMetric=100
 ```
 
+# Akses Point
+
 ## Konfigurasi IWD
 ```
 nvim /etc/iwd/main.conf
