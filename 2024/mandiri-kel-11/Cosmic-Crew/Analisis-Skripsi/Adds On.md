@@ -1,3 +1,5 @@
+# Analisis Skripsi Tahun 1999-Sekarang Di Fakultas Adab dan Humaniora
+
 | no | judul | penulis | tahun | kesimpulan dan saran |
 |:---:|---|---|:---:|---|
 | 1 | Ketersediaan koleksi perpustakaan utama UIN Syarif Hidayatullah Jakarta dalam bidang sains dan teknologi: Analisis Sitiran Terhadap Skripsi Program Sarjana (S1) Fakultas Sains dan Teknologi UIN SYARIF HIDAYATULLAH Jakarta Tahun 2006/2007 | Ratih Agustin Kusuma Wardani | 2009 | Berdasarkan hasil penelitian, dapat disimpulkan bahwa penggunaan sumber informasi dalam skripsi mahasiswa Fakultas Sains dan Teknologi UIN Syarif Hidayatullah Jakarta didominasi oleh buku teks, dengan jumlah sitiran sebanyak 564 dokumen dari 28 skripsi yang dianalisis. Sebagian besar literatur yang digunakan tergolong mutakhir dan berbahasa Indonesia. Namun, ketersediaan koleksi bidang Sains dan Teknologi di Perpustakaan Utama UIN Syarif Hidayatullah Jakarta masih sangat rendah, karena hanya sebagian kecil dari sumber yang disitir mahasiswa yang tersedia di perpustakaan. Kondisi ini menunjukkan bahwa koleksi yang dimiliki belum sepenuhnya mampu memenuhi kebutuhan informasi pengguna, khususnya dalam mendukung kegiatan penelitian dan penyusunan karya ilmiah. Oleh karena itu, perpustakaan perlu meningkatkan pengembangan koleksi yang lebih sesuai dengan kebutuhan pengguna, terutama pada bidang Sains dan Teknologi, serta memperbanyak akses terhadap jurnal ilmiah dan sumber informasi elektronik. Selain itu, pengadaan koleksi sebaiknya dilakukan berdasarkan analisis kebutuhan pengguna agar koleksi yang tersedia lebih relevan, bermanfaat, dan mampu mendukung kegiatan akademik secara optimal |
@@ -13,8 +15,7 @@ Tiga permasalahan utama perpustakaan dan arsip dengan kaitannya terhadap impleme
 3. Keterlambatan Proses Alih Media (Digitalisasi): Kegiatan pengalihmediaan bahan pustaka untuk pelestarian digital dan pengelolaan jurnal elektronik masih sangat rendah. Hal ini disebabkan oleh minimnya partisipasi unit kerja dalam penyerahan karya dan belum optimalnya manajemen sistem publikasi digital.
 
 
-
-sumber:
+## Daftar Pustaka
 https://repository.uinjkt.ac.id/dspace/bitstream/123456789/8234/1/RATIH%20AGUSTIN%20KUSUMA%20WARDANI-FAH.pdf?utm_source=chatgpt.com
 https://repository.uinjkt.ac.id/dspace/bitstream/123456789/2035/1/93323-BAMBANG%20SURYO%20PUTRO-FAH.pdf
 https://repository.uinjkt.ac.id/dspace/bitstream/123456789/71674/1/KHOERUL%20UMAM-FAH.pdf
