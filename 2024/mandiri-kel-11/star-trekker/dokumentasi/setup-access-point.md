@@ -15,7 +15,7 @@ nvim hostpot.ap
 ```
 [General]
 Enable=true
-SSID=agoy
+SSID=agoy #ini bebas
 
 [Security]
 Passphrase=passwordminimal8karakter
@@ -31,8 +31,16 @@ iwctl
 device list
 ```
 ```
-station wlan0 
-## di sisi server 2
+device wlan0 set-property Mode ap
+```
+```
+ap wlan0 start-profile hostpot.ap
+```
+
+## uji penggunaaan
+
+*cari di wifi device lain, jika muncul wifi dengan nama hostpot maka setup acces poin telah berhasil*
+### di sisi server 2
 
 ```
 nvim /var/lib/iwd
@@ -50,7 +58,7 @@ nvim bebas.ap
 ```
 [General]
 Enable=true
-SSID=agoy
+SSID=agoy #ini bebas
 
 [Security]
 Passphrase=passwordminimal8karakter
@@ -59,3 +67,19 @@ Passphrase=passwordminimal8karakter
 Address=99.99.99.99 #ini bebas tapi harus 4 oktad
 Netmask=255.255.255.0 
 ```
+```
+iwctl
+```
+```
+device list
+```
+```
+device wlan0 set-property Mode ap
+```
+```
+ap wlan0 start-profile bebas.ap
+```
+
+## uji penggunaaan
+
+*cari di wifi device lain, jika muncul wifi dengan nama bebas maka setup acces poin telah berhasil*
