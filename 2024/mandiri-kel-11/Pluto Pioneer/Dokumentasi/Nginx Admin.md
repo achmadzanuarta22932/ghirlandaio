@@ -1,4 +1,4 @@
-## instal nginx
+## Instal nginx
 ```
 sudo pacman -S nginx
 ```
