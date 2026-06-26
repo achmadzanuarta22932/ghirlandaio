@@ -1,4 +1,3 @@
-<img width="1280" height="720" alt="image" src="https://github.com/user-attachments/assets/1e3bc576-a029-4539-9dcf-097ab748816f" /># Konfigurasi Firewalld
 
 ## 1. Melihat konfigurasi firewall
 
