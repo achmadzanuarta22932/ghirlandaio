@@ -7,9 +7,10 @@ ssh force @127.0.0.1
 ```
 
 **masukkin password**
-```
+
 ```
 sudo su
+```
 
 **Masukkan password**
 Cek status firewall aktif atau tidak
@@ -59,6 +60,7 @@ ssh force @192.168.6.1
 sudo su 
 ```
 Masukan password
+
 ```
 ip addr add 192.168.6.50/24 dev wlan0
 ```
@@ -111,6 +113,7 @@ Password
 ```
 cd .config
 ```
+```
 sudo su
 ```
 password 
@@ -122,6 +125,7 @@ ip a
 ```
 ```
 systemctl status firewalld
+```
 ```
 firewall -cmd –list-all-zone
 ```
