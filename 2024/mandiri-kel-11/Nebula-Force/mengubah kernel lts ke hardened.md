@@ -1,6 +1,6 @@
 ## MENGUBAH KERNEL LTS KE HARDENED
-```
 Langkah Pertama
+```
 sudo su
 ```
 ## Melakukaan instalasi linux hardened
