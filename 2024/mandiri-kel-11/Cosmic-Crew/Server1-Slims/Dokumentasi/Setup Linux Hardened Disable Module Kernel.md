@@ -66,46 +66,6 @@ exit
 
 # Setup Firewall
 
-## Masuk Sebagai Root
-```
-sudo su
-```
-
-## Cek status firewalld
-Pastikan statusnya aktif dan enable
-```
-systemctl status firewalld
-```
-
-## Melihat List Zona
-```
-firewall-cmd --list-all-zone
-```
-## Menghapus Akses SSH Pada Zona Tertentu
-```
-firewall-cmd --zone=work --remove-service=ssh --permanent
-firewall-cmd --reload
-```
-
-```
-firewall-cmd --zone=operator --remove-service=ssh --permanent 
-firewall-cmd --reload
-```
-
-```
-firewall-cmd --zone=nm-shared --remove-service={dhcp,dns,ssh} --permanent
-firewall-cmd --reload
-```
-
-```
-firewall-cmd --zone=admin --remove-service=ssh --permanent
-firewall-cmd --reload
-```
-
->Semua services pada bagian zone dihapus. Pengecualian untuk zona public, sisakan ssh.
- 
->Gunakan {} apabila ada lebih dari satu dibagian services untuk tiap zona.
-
 # Hardening Module Kernel
 ```
 lsmod | grep cramfs
