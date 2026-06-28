@@ -1,4 +1,4 @@
-# Hasil Pencarian Skripsi
+# Hasil Pencarian Skripsi melalui Repository Fakultas Adab dan Humanioraa
 **Kelompok 11 Pluto Pioneer**
 1. Silvi Nur Aini
 2. Salfa Firyal Hasanah
