@@ -10,35 +10,59 @@ Cek partisi:
 ```
 lsblk 
 ```
+Fungsi 
+- Menampilkan seluruh hard disk, SSD, partisi, dan mount point.
+- Digunakan untuk memastikan nama disk yang akan dipartisi.
 
+Membuat partisi
 ```
 cfdisk /dev/[sesuai jenis partisi]  
 ```
+Fungsi:
+- Membuka aplikasi partisi berbasis terminal
+- Digunakan untuk membuat, menghapus, atau mengubah ukuran partisi
 
-Partisi Boot : 4G (EFI System)
-Partisi LVM : sisanya (Linux File System)
+> Partisi Boot : 4G (EFI System)
+> Partisi LVM : sisanya (Linux File System)
 
 Cek partisi: 
 ```
 lsblk 
 ```
 
-### Menghubungkan WIFI 
+### Menghubungkan WiFi 
 
+Masuk ke utilitas WiFi:
 ```
 iwctl
+```
+
+Melihat perangkat WiFi:
+```
 device list 
+```
+
+Melihat jaringan yang tersedia:
+```
 station wlan0 get-networks
+```
+
+Menghubungkan WiFi:
+```
 station wlan0 connect [nama wifi]
 ```
-### 
+### Membuat Enkripsi LUKS
+
+Memformat partisi menjadi terenkripsi:
 ```
 cryptsetup luksFormat /dev/[sesuai dengan partisi yang sudah di buat untuk system] 
 ```
+
+Membuka partisi terenkripsi:
 ```
 cryptsetup luksOpen /dev/[sesuai dengan partisi yang sudah di luksformat] orion 
 ```
-### Membuat Physical Volume 
+### Membuat Physical Volume (LVM)
 ```
 pvcreate /dev/mapper/orion 
 ```
@@ -153,15 +177,15 @@ lsblk
 ```
 pacstrap /mnt base linux-hardened linux-hardened-headers lvm2 mkinitcpio sudo pacman iwd firewalld linux-firmware audit lynis intel-ucode neovim git asciinema 
 ```
-### Generate fstab
+### Generate FSTAB
 ```
 genfstab -U /mnt > /mnt/etc/fstab
 ```
-### Mounting RAM
+### Mounting RAM 
 ```
 echo "tmpfs /tmp tmpfs defaults,rw,nosuid,nodev,noexec,relatime,size=1G 0 0" >> /mnt/etc/fstab 
 ```
-### Konfigurasi Network
+### Menyalin Konfigurasi Jaringan
 ```
 cp /etc/systemd/network/* /mnt/etc/systemd/network
 ```
@@ -210,7 +234,7 @@ nvim /etc/locale.conf
 useradd -m data
 passwd data
 ```
-Memberikan hak akses sudo 
+### Memberikan hak akses sudo 
 ```
 echo "data ALL=(ALL:ALL) ALL" >> /etc/sudoers.d/data
 ```
@@ -225,19 +249,27 @@ sudo su
 lalu exit.
 
 ### Setup Kernel Parameter
+
+Membuat folder:
 ```
 mkdir /etc/cmdline.d
 ```
+
+Membuat file konfigurasi:
 ```
 touch /etc/cmdline.d/satu-boot.conf
 ```
+
 ```
 touch /etc/cmdline.d/dua-misc.conf
 ```
+
+Isi konfigurasi:
 ```
 echo "rd.luks.name=$(blkid -s UUID -o value /dev/nvme0n1p9)=orion root=/dev/belt/root" > /etc/cmdline.d/satu-boot.conf
 ```
 
+Melihat isi file:
 ```
 cat /etc/cmdline.d/satu-boot.conf
 ```
@@ -246,6 +278,7 @@ cat /etc/cmdline.d/satu-boot.conf
 lsblk -o name,UUID
 ```
 
+Isi konfigurasi
 ```
 echo "rw" > /etc/cmdline.d/dua-misc.conf 
 ```
@@ -267,14 +300,18 @@ Menambah # pada
 ALL_default image
 
 ### Generate file boot
+Instalasi Bootloader Systemd
 ```
 bootctl --path=/boot install
 ```
 
+Untuk berpindah folder:
 ```
 cd /boot/
 ```
+**cd** berarti Change Directory dari /root ke /boot
 
+Melihat Isi Direktori
 ```
 ls
 ```
@@ -282,34 +319,40 @@ ls
 ```
 mkinitcpio -P
 ```
-### Aktivasi
+### Aktivasi Service
 
+Network:
 ```
 systemctl enable systemd-networkd
 ```
 
+DNS:
 ```
 systemctl enable systemd-resolved
 ```
 
+WiFi:
 ```
 systemctl enable iwd
 ```
 
+Keluar dari arch-chroot
 ```
 exit
 ```
 
+Melepas semua mount:
 ```
 umount -R /mnt
 ```
 
-```
-
 ### Stop Recording Asciinema 
 
-Klik ctrl+d 
+```
+ctrl+d 
+```
 
 Lalu upload asciinema
 ```
 upload asciinema [bebas dah].cast
+```
