@@ -178,3 +178,105 @@ pacstrap /mnt intel-ucode base pacman sudo linux-lts linux-lts-headers lvm2 mkin
 >
 ```
 # Regist Partisi
+genfstab -U /mnt > /mnt/etc/fstab
+```
+>
+```
+echo "tmpfs /tmp tmpfs defaults,rw,nosuid,nodev,noexec,relatime,size=1G 0 0" >> /mnt/etc/fstab
+```
+>
+```
+# Chroot
+arch-chroot /mnt
+```
+>
+```
+# Buat Hostname
+echo "hostnameanda" > /etc/hostname
+```
+>
+```
+# time 
+ln -sf /usr/share/zoneinfo/Asia/Jakarta /etc/localtime
+```
+>
+```
+hwclock --systohc
+```
+>
+nvim /etc/locale.gen
+```
+>
+cari en_US lalu uncommenting keduanya
+locale-gen
+```
+>
+```
+locale > /etc/locale.conf
+```
+>
+```
+nvim /etc/locale.conf
+```
+> edit file directory
+```
+di line paling atas ganti 'C' menjadi en_US di line paling bawah tambahkan en_US.UTF-8
+# User
+useradd -m 'nama_user'
+```
+> membuat user
+```
+passwd 'nama_user'
+```
+> membuat password
+```
+echo "nama_user ALL=(ALL:ALL) ALL" >> /etc/sudoers.d/nama_user
+```
+>
+```
+# Kernel Parameter
+mkdir /etc/cmdline.d
+```
+> membuat folder
+```
+touch /etc/cmdline.d/{01-boot.conf,06-misc.conf}
+```
+> membuat file
+```
+echo "rd.luks.name=$(blkid -s UUID -o value /dev/[partisi_luks])=creamy root=/dev/pudding/root" > /etc/cmdline.d/01-boot.conf
+```
+>
+```
+echo "rw" > /etc/cmdline.d/06-misc.conf
+```
+>
+```
+# Mkinitcpio 
+cd /boot
+```
+>
+```
+mkdir kernel efi
+```
+> membuat folder
+```
+cd efi
+```
+> masuk ke efi
+```
+mkdir linux
+```
+> membuat folder linux
+```
+cd ...
+```
+>
+```
+mv vmlinuz-* intel-* kernel
+```
+>
+```
+
+
+
+
