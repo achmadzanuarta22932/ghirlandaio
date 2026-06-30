@@ -136,8 +136,9 @@ mkfs.ext4 /dev/[nama grup]/vlog
 mount --mkdir -o rw,nodev,nosuid,noexec,relatime /dev/[nama grup]/vlog /mnt/var/log
 ```
 > membuat mounting vlog, nodev untuk tidak mengizinkan device lainnya di partisi tersebut, nosuid untuk tidak dapat mengatur akses suid/sgid dipartisi tersebut,  
-```
+
 ## vaud
+```
 lvcreate -L 1G [nama grup] -n vaud
 ```
 > membuat  logical volume dan memberikan size pada vaud
@@ -310,7 +311,7 @@ umount -R /mnt
 ```
 reboot
 ```
-> menyalakan ulang
+> memulai ulang os
 
 # after installation
 
