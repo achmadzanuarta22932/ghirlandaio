@@ -124,7 +124,7 @@ mount --mkdir -o rw,nosuid,noexec,relatime /dev/internal/podman /mnt/var/lib/con
 
 ---
 
-## 9. Install sistem operasi dasar (pacstrap)
+## 9. Install sistem operasi dasar(pacstrap)
 
 ```
 pacstrap /mnt base intel-ucode linux-lts linux-lts-headers linux-firmware mkinitcpio lvm2 sudo curl neovim iwd firewalld podman podman-compose openssh
