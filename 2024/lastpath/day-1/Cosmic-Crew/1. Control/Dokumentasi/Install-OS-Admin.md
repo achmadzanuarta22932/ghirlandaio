@@ -7,14 +7,14 @@ iwctl
 Membuka menu untuk mengatur koneksi WiFi.
 
 ```
-station wlan0 get-networks
-```
-Melihat daftar WiFi.
-
-```
 station wlan0 scan
 ```
 Mencari jaringan WiFi yang ada di sekitar.
+
+```
+station wlan0 get-networks
+```
+Melihat daftar WiFi.
 
 ```
 station wlan0 connect (nama jaringan)
@@ -24,7 +24,7 @@ Menghubungkan laptop ke WiFi.
 ```
 exit
 ```
-Keluar dari _iwctl_
+Keluar dari iwctl
 
 ```
 ping 8.8.8.8
@@ -46,7 +46,7 @@ Membuka menu untuk membuat atau mengatur partisi, dan sesuaikan dengan penyimpan
 
 ```
 boot= 3G
-root= 56G
+root= 45,8G
 ```
 
 ```
@@ -71,13 +71,13 @@ pvcreate /dev/mapper/proc
 Membuat Physical Volume.
 
 ```
-vgcreate slims /dev/mapper/proc
+vgcreate openkm /dev/mapper/proc
 ```
 Membuat Volume Group bernama slims.
 
 # Setup LVM
 ```
-lvcreate -L 15G slims -n root 
+lvcreate -L 15G openkm -n root 
 ```
 Membuat Logical Volume bernama root dan digunakan untuk menyimpan sistem operasi Linux.
 >lvcreate: untuk membuat logical volume
@@ -86,14 +86,14 @@ Membuat Logical Volume bernama root dan digunakan untuk menyimpan sistem operasi
 
 >15G: Besaran partisi yang dibuat 
 
->Slims: Nama volume grup
+>openkm: Nama volume grup
 
 >-n: Untuk menentukan nama logical volume baru yang dibuat
 
 >root: Partisi yang ingin dibuat
 
 ```
-lvcreate -L 10G slims -n vars 
+lvcreate -L 10G openkm -n vars 
 ```
 Digunakan untuk menyimpan data aplikasi dan sistem.
 >lvcreate: untuk membuat logical volume
@@ -102,14 +102,14 @@ Digunakan untuk menyimpan data aplikasi dan sistem.
 
 >10G: Besaran partisi yang dibuat 
 
->Slims: Nama volume grup
+>openkm: Nama volume grup
 
 >-n: Untuk menentukan nama logical volume baru yang dibuat
 
 >vars: Partisi yang ingin dibuat
 
 ```
-lvcreate -L 1G slims -n vlog
+lvcreate -L 1G openkm -n vlog
 ```
 Digunakan untuk menyimpan log atau catatan aktivitas sistem.
 >lvcreate: untuk membuat logical volume
@@ -118,14 +118,14 @@ Digunakan untuk menyimpan log atau catatan aktivitas sistem.
 
 >1G: Besaran partisi yang dibuat 
 
->Slims: Nama volume grup
+>openkm: Nama volume grup
 
 >-n: Untuk menentukan nama logical volume baru yang dibuat
 
 >vlog: Partisi yang ingin dibuat
 
 ```
-lvcreate -L 1G slims -n vaud
+lvcreate -L 1G openkm -n vaud
 ```
 Digunakan untuk menyimpan log audit atau keamanan sistem.
 >lvcreate: untuk membuat logical volume
@@ -134,14 +134,14 @@ Digunakan untuk menyimpan log audit atau keamanan sistem.
 
 >1G: Besaran partisi yang dibuat 
 
->Slims: Nama volume grup
+>openkm: Nama volume grup
 
 >-n: Untuk menentukan nama logical volume baru yang dibuat
 
 >vaud: Partisi yang ingin dibuat
 
 ```
-lvcreate -L 1G slims -n vtmp
+lvcreate -L 1G openkm -n vtmp
 ```
 Untuk menyimpan file sementara.
 >lvcreate: untuk membuat logical volume
@@ -150,37 +150,37 @@ Untuk menyimpan file sementara.
 
 >1G: Besaran partisi yang dibuat 
 
->Slims: Nama volume grup
+>openkm: Nama volume grup
 
 >-n: Untuk menentukan nama logical volume baru yang dibuat
 
 >vtmp: Partisi yang ingin dibuat
 
 ```
-lvcreate -L 8G slims -n home
+lvcreate -l70%FREE openkm -n home
 ```
 Untuk menyimpan data pengguna.
 >lvcreate: untuk membuat logical volume
 
->-L: Untuk menentukan ukuran kapasitas penyimpanan yang akan dibuat pada logical volume baru yang akan dibuat
+>-l70%FREE: Untuk mengalokasikan ukuran sebesar 70% dari total sisa ruang kosong yang masih tersedia didalam volume group
 
->8G: Besaran partisi yang dibuat 
-
->Slims: Nama volume grup
+>openkm: Nama volume grup
 
 >-n: Untuk menentukan nama logical volume baru yang dibuat
 
 >home: Partisi yang ingin dibuat
 
 ```
-lvcreate -l70%FREE slims -n podman 
+lvcreate -L 10G openkm -n podman 
 ```
 Menggunakan sisa ruang penyimpanan untuk podman yang digunakan untuk menyimpan data container Podman.
 >lvcreate: untuk membuat logical volume
 
->-l70%FREE: Untuk mengalokasikan ukuran sebesar 70% dari total sisa ruang kosong yang masih tersedia didalam volume group
+>-L: Untuk menentukan ukuran kapasitas penyimpanan yang akan dibuat pada logical volume baru yang akan dibuat
 
->Slims: Nama volume grup
+>10G: Besaran partisi yang dibuat 
+
+>openkm: Nama volume grup
 
 >-n: Untuk menentukan nama logical volume baru yang dibuat
 
@@ -207,60 +207,60 @@ Untuk memformat partisi boot supaya bisa digunakan sebagai partisi boot UEFI.
 >/dev/(partisi boot): Lokasi partisi yang ingin diformat 
 
 ```
-mkfs.ext4 /dev/slims/root
+mkfs.ext4 /dev/openkm/root
 ```
 Memformat volume root supaya bisa digunakan untuk menginstal Linux.
 >mkfs.ext4: singkatan dari "Make File System ext4" untuk memformat partisi menjadi sistem file ext4 
 
->/dev/slims/root: Lokasi partisi root yang ingin diformat
+>/dev/openkm/root: Lokasi partisi root yang ingin diformat
 
 ```
-mkfs.ext4 /dev/slims/vars
+mkfs.ext4 /dev/openkm/vars
 ```
 Menyiapkan volume untuk menyimpan data sistem.
 >mkfs.ext4: singkatan dari "Make File System ext4" untuk memformat partisi menjadi sistem file ext4
 
->/dev/slims/vars: Lokasi partisi vars yang ingin diformat
+>/dev/openkm/vars: Lokasi partisi vars yang ingin diformat
 
 ```
-mkfs.ext4 /dev/slims/vtmp
+mkfs.ext4 /dev/openkm/vtmp
 ```
 Menyiapkan tempat penyimpanan file sementara.
 >mkfs.ext4: singkatan dari "Make File System ext4" untuk memformat partisi menjadi sistem file ext4
 
->/dev/slims/vars: Lokasi partisi vtmp yang ingin diformat
+>/dev/openkm/vars: Lokasi partisi vtmp yang ingin diformat
 
 ```
-mkfs.ext4 /dev/slims/vlog
+mkfs.ext4 /dev/openkm/vlog
 ```
 Menyiapkan tempat penyimpanan log sistem.
 >mkfs.ext4: singkatan dari "Make File System ext4" untuk memformat partisi menjadi sistem file ext4
 
->/dev/slims/vlog: Lokasi partisi vlog yang ingin diformat
+>/dev/openkm/vlog: Lokasi partisi vlog yang ingin diformat
 
 ```
-mkfs.ext4 /dev/slims/vaud
+mkfs.ext4 /dev/openkm/vaud
 ```
 Menyiapkan tempat penyimpanan log audit.
 >mkfs.ext4: singkatan dari "Make File System ext4" untuk memformat partisi menjadi sistem file ext4
 
->/dev/slims/vaud: Lokasi partisi vaud yang ingin diformat
+>/dev/openkm/vaud: Lokasi partisi vaud yang ingin diformat
 
 ```
-mkfs.ext4 /dev/slims/home
+mkfs.ext4 /dev/openkm/home
 ```
 Menyiapkan tempat penyimpanan data pengguna.
 >mkfs.ext4: singkatan dari "Make File System ext4" untuk memformat partisi menjadi sistem file ext4
 
->/dev/slims/home: Lokasi partisi home yang ingin diformat
+>/dev/openkm/home: Lokasi partisi home yang ingin diformat
 
 ```
-mkfs.ext4 /dev/slims/podman
+mkfs.ext4 /dev/openkm/podman
 ```
 Menyiapkan tempat penyimpanan data Podman.
 >mkfs.ext4: singkatan dari "Make File System ext4" untuk memformat partisi menjadi sistem file ext4
 
->/dev/slims/podman: Lokasi partisi podman yang ingin diformat
+>/dev/openkm/podman: Lokasi partisi podman yang ingin diformat
 
 ```
 lsblk
@@ -269,12 +269,12 @@ Mengecek hasil format.
 
 # Mounting
 ```
-mount /dev/slims/root /mnt
+mount /dev/openkm/root /mnt
 ```
 Memasang partisi root, sebagai tempat instalasi Linux.
 >mount: Mengaktifkan sistem file atau partisi ke dalam sebuah direktori agar bisa diakses lewat file manager atau terminal
 
->/dev/slims/root: Lokasi partisi root yang akan dimounting
+>/dev/openkm/root: Lokasi partisi root yang akan dimounting
 
 >/mnt: Folder bawaan standar saat install arch linux yang digunakan sebagai pintu masuk sementara
 
@@ -301,7 +301,7 @@ Memasang partisi boot. Untuk tempat menyimpan file boot.
 >/mnt/boot: Folder target tempat partisi boot berada
 
 ```
-mount --mkdir -o rw,nodev,nosuid,relatime /dev/slims/vars /mnt/var         
+mount --mkdir -o rw,nodev,nosuid,relatime /dev/openkm/vars /mnt/var         
 ```
 Untuk menyimpan data sistem.
 >mount: Mengaktifkan sistem file atau partisi ke dalam sebuah direktori agar bisa diakses lewat file manager atau terminal
@@ -318,12 +318,12 @@ Untuk menyimpan data sistem.
 
 >relatime: Jika habis update, relatime akan membuat update file tersebut menjadi last update sehingga mempercepat performa arch linux
 
->/dev/slims/vars: Lokasi partisi vars yang akan dimounting
+>/dev/openkm/vars: Lokasi partisi vars yang akan dimounting
 
 >/mnt/var: Folder target tempat partisi var berada
 
 ```
-mount --mkdir -o rw,nodev,nosuid,noexec,relatime /dev/slims/vtmp /mnt/var/tmp     
+mount --mkdir -o rw,nodev,nosuid,noexec,relatime /dev/openkm/vtmp /mnt/var/tmp     
 ```
 Tempat untuk file sementara.
 >mount: Mengaktifkan sistem file atau partisi ke dalam sebuah direktori agar bisa diakses lewat file manager atau terminal
@@ -342,12 +342,12 @@ Tempat untuk file sementara.
 
 >relatime: Jika habis update, relatime akan membuat update file tersebut menjadi last update sehingga mempercepat performa arch linux
 
->/dev/slims/vtmp: Lokasi partisi vtmp yang akan dimounting
+>/dev/openkm/vtmp: Lokasi partisi vtmp yang akan dimounting
 
 >/mnt/var/tmp: Folder target tempat partisi tmp berada
 
 ```
-mount --mkdir -o rw,nodev,nosuid,noexec,relatime /dev/slims/vlog /mnt/var/log  
+mount --mkdir -o rw,nodev,nosuid,noexec,relatime /dev/openkm/vlog /mnt/var/log  
 ```
 Untuk menyimpan log sistem.
 
@@ -367,12 +367,12 @@ Untuk menyimpan log sistem.
 
 >relatime: Jika habis update, relatime akan membuat update file tersebut menjadi last update sehingga mempercepat performa arch linux
 
->/dev/slims/vlog: Lokasi partisi vlog yang akan dimounting
+>/dev/openkm/vlog: Lokasi partisi vlog yang akan dimounting
 
 >/mnt/var/log: Folder target tempat partisi log berada
 
 ```
-mount --mkdir -o rw,nodev,nosuid,noexec,relatime /dev/slims/vaud /mnt/var/log/audit      
+mount --mkdir -o rw,nodev,nosuid,noexec,relatime /dev/openkm/vaud /mnt/var/log/audit      
 ```
 Untuk menyimpan log audit.
 >mount: Mengaktifkan sistem file atau partisi ke dalam sebuah direktori agar bisa diakses lewat file manager atau terminal
@@ -391,12 +391,12 @@ Untuk menyimpan log audit.
 
 >relatime: Jika habis update, relatime akan membuat update file tersebut menjadi last update sehingga mempercepat performa arch linux
 
->/dev/slims/vaud: Lokasi partisi vaud yang akan dimounting
+>/dev/openkm/vaud: Lokasi partisi vaud yang akan dimounting
 
 >/mnt/var/log/audit: Folder target tempat partisi audit berada
 
 ```
-mount --mkdir -o rw,nodev,nosuid,relatime /dev/slims/podman /mnt/var/lib/container
+mount --mkdir -o rw,nodev,nosuid,relatime /dev/openkm/podman /mnt/var/lib/container
 ```
 Untuk menyimpan data container.
 >mount: Mengaktifkan sistem file atau partisi ke dalam sebuah direktori agar bisa diakses lewat file manager atau terminal
@@ -413,12 +413,12 @@ Untuk menyimpan data container.
 
 >relatime: Jika habis update, relatime akan membuat update file tersebut menjadi last update sehingga mempercepat performa arch linux
 
->/dev/slims/podman: Lokasi partisi podman yang akan dimounting
+>/dev/openkm/podman: Lokasi partisi podman yang akan dimounting
 
 >/mnt/var/lib/container: Folder target tempat partisi container berada
 
 ```
-mount --mkdir -o rw,nodev,nosuid,relatime /dev/slims/home /mnt/home
+mount --mkdir -o rw,nodev,nosuid,relatime /dev/openkm/home /mnt/home
 ```
 Untuk menyimpan data pengguna.
 >mount: Mengaktifkan sistem file atau partisi ke dalam sebuah direktori agar bisa diakses lewat file manager atau terminal
@@ -435,7 +435,7 @@ Untuk menyimpan data pengguna.
 
 >relatime: Jika habis update, relatime akan membuat update file tersebut menjadi last update sehingga mempercepat performa arch linux
 
->/dev/slims/home: Lokasi partisi home yang akan dimounting
+>/dev/openkm/home: Lokasi partisi home yang akan dimounting
 
 >/mnt/home: Folder target tempat partisi home berada
 
@@ -452,9 +452,9 @@ lspci
 
 Intel
 ```
-pacstrap /mnt intel-ucode base pacman sudo linux-lts linux-lts-headers lvm2 mkinitcpio linux-firmware-intel podman neovim git networkmanager asciinema linux-firmware-realtek firewalld podman
+pacstrap /mnt intel-ucode base pacman sudo linux-lts linux-lts-headers lvm2 mkinitcpio linux-firmware-intel podman neovim git iwd asciinema linux-firmware-realtek firewalld
 ```
-Menginstal sistem operasi beserta paket penting seperti kernel, firmware, NetworkManager, Podman, Git, Neovim, Firewalld, dan lain-lain.
+Menginstal sistem operasi beserta paket penting seperti kernel, firmware, iwd, Podman, Git, Neovim, Firewalld, dan lain-lain.
 
 # Fstab
 ```
@@ -476,7 +476,7 @@ Masuk ke sistem Linux yang baru diinstal, untuk melakukan konfigurasi sistem seb
 
 # Membuat Hostname
 ```
-echo "cosmic-crew" > /etc/hostname
+echo "gass" > /etc/hostname
 ```
 Memberikan nama pada device.
 
@@ -523,11 +523,11 @@ Membuat folder home untuk pengguna.
 ## Menambahkan User
 Menambahkan user 'kel10' dengan home directory
 ```
-useradd -d /home/user kel10
+useradd -d /home/user gass
 ```
 Menambahkan user baru bernama kel10.
 
-## Mengatur Password User
+## Mengatur Password
 ```
 passwd
 ```
@@ -535,24 +535,24 @@ Membuat password untuk akun root.
 
 ## Mengatur Hak Kepemilikan Home Directory
 ```
-chown -R kel10:kel10 /home/user
+chown -R gass:gass /home/user
 ```
 Memberikan hak akses folder home kepada user.
 
 ## Mengatur Password User
 ```
-passwd kel10
+passwd gass
 ```
 Membuat password untuk user kel10.
 
 ## Konfigurasi Sudo
 ```
-echo 'kel10 ALL=(ALL:ALL) ALL' >> /etc/sudoers.d/kel10
+echo 'gass ALL=(ALL:ALL) ALL' >> /etc/sudoers.d/gass
 ```
 Memberikan hak sudo kepada user.
 
 ```
-cat /etc/sudoers.d/kel10
+cat /etc/sudoers.d/gass
 ```
 Mengecek apakah hak sudo sudah berhasil ditambahkan.
 
@@ -602,7 +602,7 @@ cd ..
 ```
 
 ```
-mv vmlinuz-linux-lts amd-ucode.img kernel
+mv vmlinuz-linux-lts intel-ucode.img kernel
 ```
 Memindahkan file kernel ke folder kernel.
 
@@ -631,8 +631,9 @@ Mengatur lokasi kernel dan initramfs.
 >Tambahkan pagar pada baris kedua default. Selanjutnya, hapus pagar pada baris ketiga default, kemudian hapus 'EFI' dan ubah 'Linux' jadi 'linux'
 
 ```
-mkinitcpio -P 18L, 639B written
+mkinitcpio -P
 ```
+Untuk menerapkan perubahan konfigurasi
 
 ```
 bootctl --path=/boot install
@@ -640,9 +641,9 @@ bootctl --path=/boot install
 Menginstal bootloader agar komputer bisa menjalankan Arch Linux saat dinyalakan.
 
 ```
-systemctl enable NetworkManager
+systemctl enable iwd
 ```
-Mengaktifkan NetworkManager agar internet otomatis aktif saat boot.
+Mengaktifkan iwd agar internet otomatis aktif saat boot.
 
 ```
 systemctl enable systemd-networkd.socket
