@@ -180,41 +180,41 @@ pacstrap /mnt intel-ucode base pacman sudo linux-lts linux-lts-headers lvm2 mkin
 # Regist Partisi
 genfstab -U /mnt > /mnt/etc/fstab
 ```
->
+> mendaftarkan partisi 
 ```
 echo "tmpfs /tmp tmpfs defaults,rw,nosuid,nodev,noexec,relatime,size=1G 0 0" >> /mnt/etc/fstab
 ```
->
+> 
 ```
 # Chroot
 arch-chroot /mnt
 ```
->
+> masuk ke arch-chroot
 ```
 # Buat Hostname
 echo "hostnameanda" > /etc/hostname
 ```
->
+> untuk membuat hostname
 ```
 # time 
 ln -sf /usr/share/zoneinfo/Asia/Jakarta /etc/localtime
 ```
->
+> data yang ada di /usr/share/zoneinfo/asia/jakarta di simlink ke /etc/localtime
 ```
 hwclock --systohc
 ```
->
+> untuk generate waktu
 nvim /etc/locale.gen
 ```
->
+> nvim untuk menjalankan program neovim
 cari en_US lalu uncommenting keduanya
 locale-gen
 ```
->
+> untuk generate bahasa
 ```
 locale > /etc/locale.conf
 ```
->
+> untuk memasukkan data ke /etc/locale.conf
 ```
 nvim /etc/locale.conf
 ```
@@ -241,24 +241,24 @@ mkdir /etc/cmdline.d
 ```
 touch /etc/cmdline.d/{01-boot.conf,06-misc.conf}
 ```
-> membuat file
+> membuat file 
 ```
-echo "rd.luks.name=$(blkid -s UUID -o value /dev/[partisi_luks])=creamy root=/dev/pudding/root" > /etc/cmdline.d/01-boot.conf
+echo "rd.luks.name=$(blkid -s UUID -o value /dev/[partisi_luks])=creamy root=/dev/[nama grup]/root" > /etc/cmdline.d/01-boot.conf
 ```
->
+> 
 ```
 echo "rw" > /etc/cmdline.d/06-misc.conf
 ```
->
+> 
 ```
 # Mkinitcpio 
 cd /boot
 ```
->
+> masuk ke partisi boot
 ```
 mkdir kernel efi
 ```
-> membuat folder
+> membuat folder kernel efi
 ```
 cd efi
 ```
@@ -270,12 +270,142 @@ mkdir linux
 ```
 cd ...
 ```
->
+> buat balik ke folder sebelumnya 
 ```
 mv vmlinuz-* intel-* kernel
 ```
->
+> mv untuk memindahkan file atau folder ke directory lain
 ```
+>[!NOTE]
+> '*' (artinya klik tab)
+```
+rm -fr initramfs-*
+```
+>[!NOTE]
+> '*' (artinya klik tab)
+```
+mv /etc/mkinitcpio.conf /etc/mkinitcpio.d/default.conf
+```
+> mv untuk memindahkan file atau folder ke directory lain,/etc/mkinitcpio.conf artinya file konfigurasi utama, /etc/mkinitcpio.d/ adalah folder tempat menyimpan profile konfigurasi untuk alat bernama mkinitcpio, default.conf adalah file yang berisi instruksi bagaimana kernel utama harus dibuat. 
+```
+nvim /etc/mkinitcpio.d/default.conf
+```
+> nvim untuk menjalankan program neovim, /etc/mkinitcpio.d/ adalah folder tempat menyimpan profile konfigurasi untuk alat bernama mkinitcpio, default.conf adalah file yang berisi instruksi bagaimana kernel utama harus dibuat 
+```
+> tambahkan lvm2 dan sd-encrypt setelah sd-vcondole di hooks paling bawah
+```
+nvim /etc/mkinitcpio.d/linuxx-lts-preset
+```
+>  nvim untuk menjalankan program neovim, /etc/mkinitcpio.d/ adalah folder tempat menyimpan profile konfigurasi untuk alat bernama mkinitcpio
+> sesuaikan
+
+```
+bootctl --path=/boot install
+```
+> untuk mendaftarkan linux di boot option 
+```
+mkinitcpio -P
+```
+> generate image kernel
+```
+systemctl enable iwd
+```
+> untuk mengaktifkan aplikasi yang dituju
+```
+systemctl enable systemd-networkd.socket
+```
+> untuk mengaktifkan aplikasi yang dituju
+```
+systemctl enable systemd-resolved
+```
+> untuk mengaktifkan aplikasi yang dituju
+```
+# finish installation
+```
+exit
+```
+umount -R /mnt
+```
+> menghapus mounting
+```
+reboot
+```
+> menyalakan ulang
+```
+
+# after installation
+
+## network
+nvim /etc/iwd/main.conf
+```
+>  nvim untuk menjalankan program neovim
+```
+> tambahkan
+```
+[General]
+EnableNetworkConfiguration=true
+```
+## disable module
+nvim /etc/modprobe.d/hardening.conf
+```
+install    cramfs           /bin/false
+
+
+install    freexfs          /bin/false
+
+
+install    hfs              /bin/false
+
+
+install    hfsplus          /bin/false
+
+
+install    jffs2            /bin/false
+
+
+install    udf              /bin/false
+
+
+install    fire-wire-core   /bin/false
+
+
+install    usb_storage      /bin/false
+selanjutnya ketik : 
+```
+mkinitcpio -P
+```
+> generate image kernel
+cek list module :
+```
+lsmod
+```
+> mencantumkan semua modul kernel yang lagi dimuat
+lsmod | grep namamodule
+```
+> mencamtukan modul yang dicari
+## setup firewalld
+systemctl enable --now firewalld
+```
+sudo firewall-cmd --zone=public --add-service=http --permanent 
+```
+sudo firewall-cmd --zone=public --add-port=2377/tcp --permanent
+```
+sudo firewall-cmd --zone=public --add-port=7946/tcp --permanent
+```
+sudo firewall-cmd --zone=public --add-port=4789/tcp --permanent
+```
+sudo firewall-cmd --zone=public --add-port=8000/tcp --permanent
+```
+sudo firewall-cmd --zone=public --add-port=5432/tcp --permanent
+```
+sudo firewall-cmd --zone=public --add-port=6379/tcp --permanent
+```
+sudo firewall-cmd --reload
+```
+Selanjutnya, untuk melihat list-list port dan sistem yang sudah di enable ketik:
+```
+sudo firewall-cmd --list-ports
+
 
 
 
