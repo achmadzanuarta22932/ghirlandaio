@@ -136,8 +136,9 @@ mkfs.ext4 /dev/[nama grup]/vlog
 mount --mkdir -o rw,nodev,nosuid,noexec,relatime /dev/[nama grup]/vlog /mnt/var/log
 ```
 > membuat mounting vlog, nodev untuk tidak mengizinkan device lainnya di partisi tersebut, nosuid untuk tidak dapat mengatur akses suid/sgid dipartisi tersebut,  
-```
+
 ## vaud
+```
 lvcreate -L 1G [nama grup] -n vaud
 ```
 > membuat  logical volume dan memberikan size pada vaud
@@ -310,7 +311,7 @@ umount -R /mnt
 ```
 reboot
 ```
-> menyalakan ulang
+> memulai ulang os
 
 # after installation
 
@@ -318,12 +319,12 @@ reboot
 ```
 nvim /etc/iwd/main.conf
 ```
->  nvim untuk menjalankan program neovim
-```
+> nvim untuk menjalankan program neovim
 > tambahkan
 ```
 [General]
 EnableNetworkConfiguration=true
+```
 
 ## disable module
 ```
@@ -370,25 +371,51 @@ lsmod | grep namamodule
 ```
 systemctl enable --now firewalld
 ```
-sudo firewall-cmd --zone=public --add-service=http --permanent 
 ```
-sudo firewall-cmd --zone=public --add-port=2377/tcp --permanent
+sudo firewall-cmd --list-all-zone
 ```
-sudo firewall-cmd --zone=public --add-port=7946/tcp --permanent
 ```
-sudo firewall-cmd --zone=public --add-port=4789/tcp --permanent
+sudo firewall-cmd --permanent --remove-service=ssh --zone=work
 ```
-sudo firewall-cmd --zone=public --add-port=8000/tcp --permanent
 ```
-sudo firewall-cmd --zone=public --add-port=5432/tcp --permanent
+sudo firewall-cmd --permanent --remove-service=dhcpv6-client --zone=work
 ```
-sudo firewall-cmd --zone=public --add-port=6379/tcp --permanent
+```
+sudo firewall-cmd --permanent --remove-service=dhcpv6-client --zone=public
+```
+```
+sudo firewall-cmd --permanent --remove-service=dhcpv6-client --zone=internal
+```
+```
+sudo firewall-cmd --permanent --remove-service=mdns --zone=internal
+```
+```
+sudo firewall-cmd --permanent --remove-service=samba-client --zone=internal
+```
+```
+sudo firewall-cmd --permanent --remove-service=ssh --zone=internal
+```
+```
+sudo firewall-cmd --permanent --remove-service=ssh --zone=home
+```
+```
+sudo firewall-cmd --permanent --remove-service=samba-client --zone=home
+```
+```
+sudo firewall-cmd --permanent --remove-service=mdns --zone=home
+```
+```
+sudo firewall-cmd --permanent --remove-service=dhcpv6-client --zone=home
+```
+```
+sudo firewall-cmd --permanent --remove-service=ssh --zone=external
+```
+```
+sudo firewall-cmd --permanent --remove-service=ssh --zone=dmz
+```
 ```
 sudo firewall-cmd --reload
 ```
-Selanjutnya, untuk melihat list-list port dan sistem yang sudah di enable ketik:
-```
-sudo firewall-cmd --list-ports
 
 
 
