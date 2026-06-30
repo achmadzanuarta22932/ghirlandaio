@@ -23,7 +23,7 @@ server {
     server_name agoy.local.test;
 
     location / {
-        proxy_pass http://10.10.1.3:8081;
+        proxy_pass http://ipstaticserver2:8081;
 
         proxy_set_header Host $host;
         proxy_set_header X-Real-IP $remote_addr;
