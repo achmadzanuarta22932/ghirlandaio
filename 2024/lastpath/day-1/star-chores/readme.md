@@ -8,3 +8,4 @@ member of star-chores 2026
 5. paja
 6. kautsar
 
+SAHABAT SELAMANYA
