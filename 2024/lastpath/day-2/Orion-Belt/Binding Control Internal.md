@@ -34,9 +34,12 @@ Sudo cat /var/lib/rancher/k3s/server/node-token
 ```
 fungsi command tersebut adalah untuk mengambil kode rahasia (token authentication) yang berada di laptop kontrol (K3s Server). Token ini berfungsi sebagai "kunci gerbang" atau bukti verifikasi keamanan agar node baru diizinkan bergabung ke klaster. Setelah menjalankan command tersebut, akan mengeluarkan token. setelah token keluar kita akan menjalankan command
 ```
-curl -sfL https://get.k3s.io | K3S_URL=https://10.18.210.163:6443 K3S_TOKEN=[Token] sh -
+curl -sfL https://get.k3s.io | sudo sh -s - agent --server https://[ip internal]:6443 --token [Token]
 ```
 Perintah utama ini digunakan untuk menginstal K3s Agent sekaligus menghubungkannya ke pusat. 
 
 Setelah itu tunggu hingga berhasil.
 
+curl -sfL https://get.k3s.io | sudo sh -s - agent --server https://[ip data]:6443 --token [Token]
+```
+Perintah utama ini digunakan untuk menginstal K3s Agent sekaligus menghubungkannya ke pusat. 
