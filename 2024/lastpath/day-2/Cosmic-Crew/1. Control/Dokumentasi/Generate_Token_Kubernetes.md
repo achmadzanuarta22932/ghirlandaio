@@ -53,7 +53,7 @@ clear
 
 # Install K3s
 ```
-curl -sfL https://get/K3s.io | sh-
+curl -sfL https://get/K3s.io | sh -
 ```
 >Mengunduh lalu langsung menjalankan script instalasi K3s, digunakan untuk menginstal K3s, yaitu versi ringan dari Kubernetes yang digunakan untuk mengelola container dan cluster dengan lebih sederhana.
 
