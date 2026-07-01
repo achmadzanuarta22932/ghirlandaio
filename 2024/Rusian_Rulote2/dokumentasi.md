@@ -231,6 +231,7 @@ dd if=bootloader.bin of=/dev/block/bootloader
 ```
 reboot
 ```
+- masukan user root
 - setelah itu masukan pw root 1234
 
 - setelah itu akan diminta untuk mengubah password root
