@@ -116,7 +116,7 @@ kalian dapat mengunakan cardreader seperti di gambar atau cardreader berupa usb
 
 - jika sudah selesai klik close
 - buka microsd di file manager
-- dan pindahkan file uboot_h980b pindahkan ke sdcard dan renameuntuk memudahkan kita menjadi bootloader.bin
+- dan pindahkan file uboot_HG680P.bin pindahkan ke sdcard dan renameuntuk memudahkan kita menjadi bootloader.bin
 
 - kemudian buka folder extlinux
 
