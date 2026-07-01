@@ -85,7 +85,7 @@ kalian dapat mengunakan cardreader seperti di gambar atau cardreader berupa usb
 - setelah selesai, ketik huruf e lalu enter untuk keluar dari terminal
 
 
-# step 3 mengecek android
+# step 3 ANDROID TV
 
 - setelah selesai maka step tadi kita sudah berhasil menginstall android di stb kita
 
@@ -116,6 +116,7 @@ kalian dapat mengunakan cardreader seperti di gambar atau cardreader berupa usb
 
 - jika sudah selesai klik close
 - buka microsd di file manager
+- dan pindahkan file uboot_h980b pindahkan ke sdcard dan renameuntuk memudahkan kita menjadi bootloader.bin
 
 - kemudian buka folder extlinux
 
@@ -230,6 +231,7 @@ dd if=bootloader.bin of=/dev/block/bootloader
 ```
 reboot
 ```
+- masukan user root
 - setelah itu masukan pw root 1234
 
 - setelah itu akan diminta untuk mengubah password root
