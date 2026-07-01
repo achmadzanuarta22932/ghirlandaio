@@ -23,21 +23,21 @@ systemctl status firewalld
 > apabila keluar active (running) maka firewalld berhasil berjalan
 ```
 ```
-## Restart K3s Agent 
+## 4. Restart K3s Agent 
 ```
 systemctl restart k3s-agent.service
 ```
 > menjalankan worker node pada kubernetes
 ```
 ```
-## Mengecek status K3s agent
+## 5. Mengecek status K3s agent
 ```
 systemctl status k3s-agent.service
 ```
 > mengecek apakah node sudah aktif dan terhubung ke cluster kubernetes
 ```
 ```
-## Keluar dari terminal
+## 6. Keluar dari terminal
 ```
 exit
 ```
