@@ -1,11 +1,11 @@
-# Connect Kubernetes Internal
+# Connect Kubernetes Data
 
 ## 1. Proses Koneksi dan Pengecekan Awal
 
 Bagian ini adalah langkah awal untuk masuk ke server target dan memeriksa konfigurasi jaringan.
 
 ```
-ssh kel10@192.168.1.23
+ssh cos@192.168.1.23
 ```
 
 Melakukan remote akses menggunakan SSH ke server dengan IP ``` 192.168.1.23``` menggunakan username ``` cos ```
@@ -53,7 +53,7 @@ Memeriksa IP address pada komputer lokal/master (tempat menjalankan perintah saa
 masuk kembali ke server ``` .23 ``` untuk menginstal K3s dengan peran sebagai Agent (Worker Node).
 
 ```
-ssh kel10@192.168.1.23
+ssh cos@192.168.1.23
 ```
 
 Melakukan remote akses menggunakan SSH ke server dengan IP ``` 192.168.1.23 ``` menggunakan username ``` cos ```
