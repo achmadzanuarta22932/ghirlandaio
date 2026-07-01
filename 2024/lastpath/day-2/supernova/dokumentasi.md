@@ -1,4 +1,4 @@
-# Deploymen & Binding Kubernetes
+# Deployment & Binding Kubernetes
 
 ## Connect Wifi
 sebelum menghubungkan internet pastikan terlebih dahulu status network kalian menggunakan command
