@@ -1,4 +1,4 @@
-# Setup Firewall Control 
+# Genrate Token Kubernetes
 
 # Root Accsess
 ```
