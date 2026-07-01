@@ -107,7 +107,7 @@ Keluar dari Root dan mengakhiri sesi SSH di server ``` .18 ```.
 
 ## 4. Pengecekan Node dari Master Server
 
-Sekarang kamu kembali di Master Server (atau komputer lokal yang memiliki akses kubectl).
+Sekarang kembali di Master Server (atau komputer lokal yang memiliki akses kubectl).
 
 ```
 kubectl get nodes
@@ -139,12 +139,6 @@ sudo su
 Mengubah hak akses dari user biasa ``` kel10 ``` menjadi Root / Superuser karena konfigurasi sistem memerlukan hak akses tertinggi.
 
 ``` masukkan password ``` input manual
-
-```
-cat /var/lib/
-```
-
-Perintah ini sebenarnya belum selesai/salah ketik. ``` cat ``` digunakan untuk melihat isi file, sedangkan ``` /var/lib/ ``` adalah sebuah direktori (folder).
 
 ```
 cat /var/lib/rancher/k3s/agent/etc/k3s-agent-load-balancer.json
