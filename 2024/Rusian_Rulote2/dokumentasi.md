@@ -178,7 +178,8 @@ dtb_name=/dtb/meson-gxl-s905x-p212.dtb
 bootargs=root=LABEL=ROOTFS rootflags=data=writeback rw console=ttyAML0,115200n8 console=tty0 no_console_suspend consoleblank=0 fsck.fix=yes fsck.repair=yes net.ifnames=0
 ```
 
-- selanjutnya kita kembali ke android pada set top box, kita bisa menggunakan mouse
+- selanjutnya kita kembali ke android pada set top box, jangan lupa memasukan sdcard ke stb
+- kita bisa menggunakan mouse dan keuboard untuk memudahkan step selanjutnya
 - setelah itu klik, 2 tombol dari icon home yamg iconnya mirip pensil untuk bisa menyalin file yang telah dipilih, pilih nyalin
 
 - lalu pencet tombol icon home
