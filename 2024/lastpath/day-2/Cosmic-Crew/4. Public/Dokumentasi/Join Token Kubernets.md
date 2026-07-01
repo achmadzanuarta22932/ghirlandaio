@@ -1,4 +1,4 @@
-# Connect Kubernetes Internal
+# Connect Kubernetes Public
 
 ## 1. Proses Koneksi dan Pengecekan Awal
 
